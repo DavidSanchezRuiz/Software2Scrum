@@ -1,0 +1,120 @@
+html{
+    font-family: Roboto;
+}
+
+body {
+    background-color: #eeeeee;
+}
+
+h4{
+    font-size: 2.7em;
+}
+
+h5{
+    font-size: 1.3em;
+}
+
+p{
+    font-size: 1.25em;
+}
+
+.list ul li:hover{
+    background-color: #37474f;
+}
+
+.banner{
+    background: url(../images/banner2.jpg) no-repeat fixed 0% 0%/cover;
+    cursor: default;
+}
+
+.banner-container{
+    padding-top: 27px;
+    padding-bottom: 150px;
+}
+
+.services ul {
+    padding-top: 0px;
+    padding-bottom: 30px;
+}
+
+.image-services{
+    width: 150px;
+    height: 150px;
+}
+
+.news{
+    background: url(../images/imagen7.jpg) no-repeat 0% 0%/cover;
+    cursor: default;
+    padding-top: 0px;
+    transform: translateX(0px); opacity: 1;
+}
+
+.news .container ul li{
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+#bottomShape{
+    margin-bottom: 0px;
+}
+
+#Contact{
+    background: url(../images/imagen1.jpg) no-repeat 0% 0%/cover;
+    cursor: default;
+    padding-top: 0px;
+}
+
+.contact-container{
+    padding-top: 0px;
+}
+
+.contact-form{
+    padding-top: 30px;
+    font-size: 1.5em;
+}
+
+.inf-contact{
+    padding-top: 100px;
+    padding-bottom: 50px;
+    padding-left: 100px;
+}
+
+#Contact .container ul li .inf-contact ul li{
+    padding-bottom: 20px;
+}
+
+.cont-map .map{
+    padding: 40px 0px;
+    background-color: #eeeeee;
+}
+
+/*
+.team{
+    background: url(../images/banner.jpg) no-repeat 0% 0%/cover;
+    cursor: default;
+    padding-top: 0px;
+}
+*/
+
+.team .container ul{
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.team .container ul li{
+    padding-bottom: 50px;
+}
+
+.info-developers{
+    width: 100%;
+    height: 150px;
+}
+
+.team-photo{
+    width: 200px;
+    height: 200px;
+}
+
+.scrollspy{
+    align-content: flex-start;
+}
