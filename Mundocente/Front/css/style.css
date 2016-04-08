@@ -6,16 +6,12 @@ body {
     background-color: #eeeeee;
 }
 
-h4{
-    font-size: 2.7em;
-}
-
-h5{
-    font-size: 1.3em;
-}
-
-p{
+p, h5{
     font-size: 1.25em;
+}
+
+.sub-title{
+    font-size: 2.5em;
 }
 
 .list ul li:hover{
@@ -23,7 +19,7 @@ p{
 }
 
 .banner{
-    background: url(../images/banner2.jpg) no-repeat fixed 0% 0%/cover;
+    background: url(../images/banner.jpg) no-repeat fixed 0% 0%/cover;
     cursor: default;
 }
 
@@ -43,7 +39,7 @@ p{
 }
 
 .news{
-    background: url(../images/imagen7.jpg) no-repeat 0% 0%/cover;
+    background: url(../images/background-image.jpg) no-repeat 0% 0%/cover;
     cursor: default;
     padding-top: 0px;
     transform: translateX(0px); opacity: 1;
@@ -59,7 +55,7 @@ p{
 }
 
 #Contact{
-    background: url(../images/imagen1.jpg) no-repeat 0% 0%/cover;
+    background: url(../images/background-image.jpg) no-repeat 0% 0%/cover;
     cursor: default;
     padding-top: 0px;
 }
@@ -70,7 +66,6 @@ p{
 
 .contact-form{
     padding-top: 30px;
-    font-size: 1.5em;
 }
 
 .inf-contact{
@@ -87,14 +82,6 @@ p{
     padding: 40px 0px;
     background-color: #eeeeee;
 }
-
-/*
-.team{
-    background: url(../images/banner.jpg) no-repeat 0% 0%/cover;
-    cursor: default;
-    padding-top: 0px;
-}
-*/
 
 .team .container ul{
     padding-top: 60px;
@@ -117,4 +104,24 @@ p{
 
 .scrollspy{
     align-content: flex-start;
+}
+
+.style-form label {
+    font-size: 0.9em;
+}
+
+/* Inicio */
+
+.filter-button{
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+
+.btn-type{
+    width: 100%;
+}
+
+.card-title-center{
+    padding-left: 10px;
+    padding-bottom: 8px;
 }
