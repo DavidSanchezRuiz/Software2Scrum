@@ -49,7 +49,7 @@
 
 <div id="Login" class="modal">
     <div class="modal-content">
-        <h5>Iniciar Sesion</h5>
+        <h5>Iniciar Sesión</h5>
         <form class="row">
             <div class="col s12 style-form">
                 <input id="email-login" type="email" class="validate">
@@ -57,7 +57,7 @@
             </div>
             <div class="col s12 style-form">
                 <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
+                <label for="password">Contraseña</label>
             </div>
             <div class="col s12 center-align">
                 <button class="btn waves-effect waves-green cyan darken-3" type="submit" name="action">
@@ -66,7 +66,7 @@
             </div>
         </form>
         <div id="login-failed-panel" class="red-text center-align" style="display: none;">
-            Login failed, please try again.
+            Acceso fallido. Por favor intente nuevamente.
         </div>
         <div class="section center">
             <a class="modal-trigger" href="#!">¿Olvido su contraseña?</a>
@@ -88,7 +88,7 @@
             </div>
             <div class="col s12 style-form">
                 <select>
-                    <option value="" disabled selected>Seleccion una univerisdad</option>
+                    <option value="" disabled selected>Seleccione una universidad</option>
                     <option value="1">Opción 1</option>
                     <option value="2">Opción 2</option>
                     <option value="3">Opción 3</option>
@@ -181,7 +181,7 @@
             <li class="col s12 m4">
                 <div class="card white">
                     <div class="card-content">
-                        <span class="card-title">Titulo</span>
+                        <span class="card-title">Título</span>
                         <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                             Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                     </div>
@@ -193,7 +193,7 @@
             <li class="col s12 m4">
                 <div class="card white">
                     <div class="card-content">
-                        <span class="card-title">Titulo</span>
+                        <span class="card-title">Título</span>
                         <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                             Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                     </div>
@@ -205,7 +205,7 @@
             <li class="col s12 m4">
                 <div class="card white">
                     <div class="card-content">
-                        <span class="card-title">Titulo</span>
+                        <span class="card-title">Título</span>
                         <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                             Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                     </div>
@@ -217,7 +217,7 @@
             <li class="col s12 m4">
                 <div class="card white">
                     <div class="card-content">
-                        <span class="card-title">Titulo</span>
+                        <span class="card-title">Título</span>
                         <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                             uspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                     </div>
@@ -229,7 +229,7 @@
             <li class="col s12 m4">
                 <div class="card white">
                     <div class="card-content">
-                        <span class="card-title">Titulo</span>
+                        <span class="card-title">Título</span>
                         <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                             Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                     </div>
@@ -241,7 +241,7 @@
             <li class="col s12 m4">
                 <div class="card white">
                     <div class="card-content">
-                        <span class="card-title">Titulo</span>
+                        <span class="card-title">Título</span>
                         <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                             Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                     </div>
@@ -296,7 +296,7 @@
                         <span class="center">Mail: examplefake1@gmail.com</span>
                     </div>
                     <div>
-                        <span class="center">Tel: 3133616690</span>
+                        <span class="center">Tel: </span>
                     </div>
                     <div>
                         <a href=""><img src="images/Facebook.png"></a>
@@ -313,10 +313,10 @@
                         <span class="center">Desarrollador - Software</span>
                     </div>
                     <div>
-                        <span class="center">Mail: examplefake1@gmail.com</span>
+                        <span class="center">Mail: examplefake2@gmail.com</span>
                     </div>
                     <div>
-                        <span class="center">Tel: 3133616690</span>
+                        <span class="center">Tel: </span>
                     </div>
                     <div>
                         <a href=""><img src="images/Facebook.png"></a>
@@ -333,10 +333,10 @@
                         <span class="center">Desarrollador</span>
                     </div>
                     <div>
-                        <span class="center">Mail: examplefake1@gmail.com</span>
+                        <span class="center">Mail: examplefake3@gmail.com</span>
                     </div>
                     <div>
-                        <span class="center">Tel: 3133616690</span>
+                        <span class="center">Tel: </span>
                     </div>
                     <div>
                         <a href=""><img src="images/Facebook.png"></a>
@@ -356,10 +356,10 @@
                         <span class="center">Desarrollador</span>
                     </div>
                     <div>
-                        <span class="center">Mail: examplefake1@gmail.com</span>
+                        <span class="center">Mail: examplefake4@gmail.com</span>
                     </div>
                     <div>
-                        <span class="center">Tel: 3133616690</span>
+                        <span class="center">Tel: </span>
                     </div>
                     <div>
                         <a href=""><img src="images/Facebook.png"></a>
@@ -410,10 +410,10 @@
                 <div class="inf-contact">
                     <ul class="row">
                         <li class="col s12 m12 grey-text">
-                            <span>Dirección: Tunja (Boyaca - Colombia) </span>
+                            <span>Dirección: Tunja (Boyacá - Colombia) </span>
                         </li>
                         <li class="col s12 m12 grey-text">
-                            <span>Telefono: +57 3133616690</span>
+                            <span>Teléfono: +57 3133616690</span>
                         </li>
                         <li class="col s12 m12 grey-text">
                             <span>Email: email@fake.com </span>
@@ -449,7 +449,7 @@
     <div class="footer-copyright blue-grey darken-4">
         <div class="container">
             © 2016 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#">Mas Links</a>
+            <a class="grey-text text-lighten-4 right" href="#">Más Links</a>
         </div>
     </div>
 </footer>

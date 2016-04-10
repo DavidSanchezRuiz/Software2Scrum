@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Busqueda</title>
+    <title>Mundocente</title>
     <!-- CSS -->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -53,7 +53,7 @@
                     </li>
                     <li>
                         <div class="card">
-                            <span class="card-title"><i class="material-icons card-title-center">description</i>Interes</span>
+                            <span class="card-title"><i class="material-icons card-title-center">description</i>Interés</span>
                             <div class="divider"></div>
                             <div class="card-content">
                                 <select>
@@ -75,12 +75,12 @@
                 </ul>
             </div>
             <div class="col s12 m9">
-                <h4 class="light">Resultados</h4>
+                <h4 class="light">Resultado</h4>
                 <ul class="row">
                     <li class="col s12 m6">
                         <div class="card white">
                             <div class="card-content">
-                                <span class="card-title">Titulo</span>
+                                <span class="card-title">Título</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -92,7 +92,7 @@
                     <li class="col s12 m6">
                         <div class="card white">
                             <div class="card-content">
-                                <span class="card-title">Titulo</span>
+                                <span class="card-title">Título</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -104,7 +104,7 @@
                     <li class="col s12 m6">
                         <div class="card white">
                             <div class="card-content">
-                                <span class="card-title">Titulo</span>
+                                <span class="card-title">Título</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -116,7 +116,7 @@
                     <li class="col s12 m6">
                         <div class="card white">
                             <div class="card-content">
-                                <span class="card-title">Titulo</span>
+                                <span class="card-title">Título</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     uspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -128,7 +128,7 @@
                     <li class="col s12 m6">
                         <div class="card white">
                             <div class="card-content">
-                                <span class="card-title">Titulo</span>
+                                <span class="card-title">Título</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -140,7 +140,7 @@
                     <li class="col s12 m6">
                         <div class="card white">
                             <div class="card-content">
-                                <span class="card-title">Titulo</span>
+                                <span class="card-title">Título</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
