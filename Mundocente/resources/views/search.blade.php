@@ -3,23 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Usuario creado</title>
+    <title>Mundocente</title>
     <!-- CSS -->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/style.css" media="screen, projection"/>
 </head>
 <body>
-
-
-
-
-
-
-
-
-        <div id="Sign-up" class="modal">
-    <div class="modal-content"></div></div>
 
 <!-- Navegador -->
 <section class="navbar">
@@ -32,11 +22,7 @@
                     <label for="search"><i class="material-icons">search</i></label>
                     <i class="material-icons">close</i>
                 </li>
-                <li><a href="#" class="waves-effect waves-teal"><i class="material-icons right">person_pin</i>
-
-            Cuenta</span>
-                        
-</a></li>
+                <li><a href="#" class="waves-effect waves-teal"><i class="material-icons right">person_pin</i>Cuenta</a></li>
                 <li><a href="#" class="waves-effect waves-teal"><i class="material-icons right">power_settings_new</i>Salir</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
@@ -58,7 +44,7 @@
                         <div class="card">
                             <span class="card-title"><i class="material-icons card-title-center">filter_list</i>Tipo</span>
                             <div class="divider"></div>
-                            <div class="card-content center">
+                            <div class="card-content center" style="min-height:0px">
                                 <div class="filter-button"><a class="btn waves-effect waves-light btn-type orange" href="#">Convocatorias docentes</a></div>
                                 <div class="filter-button"><a class="btn waves-effect waves-light btn-type red" href="#">Revistas científicas</a></div>
                                 <div class="filter-button"><a class="btn waves-effect waves-light btn-type blue" href="#">Eventos académicos</a></div>
@@ -69,7 +55,7 @@
                         <div class="card">
                             <span class="card-title"><i class="material-icons card-title-center">description</i>Interés</span>
                             <div class="divider"></div>
-                            <div class="card-content">
+                            <div class="card-content" style="min-height: 0px">
                                 <select>
                                     <option value="" disabled selected>Area</option>
                                     <option value="1">Area 1</option>
@@ -92,9 +78,9 @@
                 <h4 class="light">Resultado</h4>
                 <ul class="row">
                     <li class="col s12 m6">
-                        <div class="card white">
+                        <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Título</span>
+                                <span class="card-title">Titulo</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -104,9 +90,9 @@
                         </div>
                     </li>
                     <li class="col s12 m6">
-                        <div class="card white">
+                        <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Título</span>
+                                <span class="card-title">Titulo</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -116,9 +102,9 @@
                         </div>
                     </li>
                     <li class="col s12 m6">
-                        <div class="card white">
+                        <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Título</span>
+                                <span class="card-title">Titulo</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -128,9 +114,9 @@
                         </div>
                     </li>
                     <li class="col s12 m6">
-                        <div class="card white">
+                        <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Título</span>
+                                <span class="card-title">Titulo</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     uspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -140,9 +126,9 @@
                         </div>
                     </li>
                     <li class="col s12 m6">
-                        <div class="card white">
+                        <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Título</span>
+                                <span class="card-title">Titulo</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
@@ -152,9 +138,9 @@
                         </div>
                     </li>
                     <li class="col s12 m6">
-                        <div class="card white">
+                        <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Título</span>
+                                <span class="card-title">Titulo</span>
                                 <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
                                     Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
                             </div>
