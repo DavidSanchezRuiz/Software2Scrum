@@ -51,12 +51,9 @@
 
 <div id="Login" class="modal">
     <div class="modal-content">
-<<<<<<< HEAD
-        <h5>Iniciar Sesion</h5>
 
-=======
         <h5>Iniciar Sesión</h5>
->>>>>>> dee91e2c280bf8666b56008a70d28df698563108
+
         <form class="row">
             <div class="col s12 style-form">
                 <input id="email-login" type="email" class="validate">

@@ -12,6 +12,12 @@
 <body>
 
 
+
+
+
+
+
+
         <div id="Sign-up" class="modal">
     <div class="modal-content"></div></div>
 
