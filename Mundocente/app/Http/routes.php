@@ -12,7 +12,13 @@
 */
 
 
-Route::resource('/','PaginationController@index');
-Route::resource('search','PaginationController@search');
+//Controlador de páginas principales
+
+Route::get('/','PaginationController@index');
+Route::get('search','PaginationController@search');
+
+Route::resource('user','ControladorDocente');
+
+
 
 

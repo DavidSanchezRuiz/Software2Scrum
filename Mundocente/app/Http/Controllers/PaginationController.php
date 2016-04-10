@@ -14,7 +14,8 @@ class PaginationController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $actividads = \Mundocente\Actividad::All();
+        return view('index',compact('actividads'));
     }
 
     public function search(){

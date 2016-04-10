@@ -5,7 +5,24 @@ html{
 body {
     background-color: #eeeeee;
 }
-
+::-webkit-scrollbar{
+    width: 7px;
+    background: #ddd;
+    
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #444;
+    cursor: pointer;
+    border-radius:20px;
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+}
+ 
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(150,150,150,0.8);
+    cursor: pointer;
+}
 p, h5{
     font-size: 1.25em;
 }

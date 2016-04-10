@@ -22,7 +22,11 @@
                     <label for="search"><i class="material-icons">search</i></label>
                     <i class="material-icons">close</i>
                 </li>
-                <li><a href="#" class="waves-effect waves-teal"><i class="material-icons right">person_pin</i>Cuenta</a></li>
+                <li><a href="#" class="waves-effect waves-teal"><i class="material-icons right">person_pin</i>
+
+            Cuenta</span>
+                        
+</a></li>
                 <li><a href="#" class="waves-effect waves-teal"><i class="material-icons right">power_settings_new</i>Salir</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
