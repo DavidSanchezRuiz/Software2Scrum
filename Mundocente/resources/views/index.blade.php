@@ -47,9 +47,13 @@
     </nav>
 </section>
 
+<!-- Formulario de ingreso -->
+
 <div id="Login" class="modal">
     <div class="modal-content">
+
         <h5>Iniciar Sesión</h5>
+
         <form class="row">
             <div class="col s12 style-form">
                 <input id="email-login" type="email" class="validate">
@@ -77,49 +81,63 @@
 <div id="Sign-up" class="modal">
     <div class="modal-content">
         <h5>Registro</h5>
-        <form class="row">
+
+
+
+
+<!-- Formulario de registro -->
+
+
+{!!Form::open(['route'=>'user.store', 'method'=>'POST'])!!}
+
+
             <div class="col s12 style-form">
-                <input id="Username" type="text" class="validate">
-                <label for="Username">Nombre de usuario</label>
+                
+                {!!Form::text('name',null,['class'=>'validate','placeholder'=>'Ingrese su nombre'])!!}
+                
             </div>
             <div class="col s12 style-form">
-                <input id="email-sign-up" type="email" class="validate">
-                <label for="email-sign-up">Email</label>
+                
+                {!!Form::text('lastName',null,['class'=>'validate','placeholder'=>'Ingrese su apellido'])!!}
+                
+            </div>
+            <div class="col s12 style-form">
+                
+                {!!Form::text('email',null,['class'=>'validate','placeholder'=>'Ingrese su correo'])!!}
+                
             </div>
             <div class="col s12 style-form">
                 <select>
-                    <option value="" disabled selected>Seleccione una universidad</option>
-                    <option value="1">Universidad 1</option>
-                    <option value="2">Universidad 2</option>
-                    <option value="3">Universidad 3</option>
+                    <option value="" disabled selected>Seleccion una univerisdad</option>
+                    <option value="1">UPTC - Sede Tunja</option>
+                    <option value="2">Uniboyaca</option>
+                    <option value="3">Juan de Castellano</option>
+                    <option value="3">Los Andes</option>
+                    <option value="3">Javeriana</option>
+                    <option value="3">Universidad nacional de Colombia</option>
                 </select>
                 <label>Universidad</label>
             </div>
             <div class="col s12 style-form">
-                <select>
-                    <option value="" disabled selected>Seleccione un area</option>
-                    <option value="1">Area 1</option>
-                    <option value="2">Area 2</option>
-                    <option value="3">Area 3</option>
-                </select>
-                <label>Area</label>
+                {!!Form::password('password',['class'=>'validate','placeholder'=>'Contraseña'])!!}
             </div>
             <div class="col s12 style-form">
-                <input id="password-sign-up" type="password" class="validate">
-                <label for="password-sign-up">Contraseña</label>
-            </div>
-            <div class="col s12 style-form">
-                <input id="Confirm-password-sign-up" type="password" class="validate">
-                <label for="Confirm-password-sign-up">Confirmar Contraseña</label>
+                {!!Form::password('passwordConfim',['class'=>'validate','placeholder'=>'Confirmar contraseña'])!!}
             </div>
             <div class="col s12 center-align">
-                <button class="btn waves-effect waves-green cyan darken-3" type="submit" name="action" href="search.php">
-                    Registrar
-                </button>
+                {!!Form::submit('Registrar',['class'=>'btn waves-effect waves-green cyan darken-3'])!!}
             </div>
-        </form>
+
+
+
+{!!Form::close()!!}
+
+        
     </div>
 </div>
+
+
+
 
 <!-- Banner -->
 <section class="section banner scrollspy" id="banner">
@@ -178,77 +196,25 @@
     <div class="container">
         <h4 class="center-align grey-text light sub-title">Reciente</h4>
         <ul class="row">
-            <li class="col s12 m4">
-                <div class="card small">
+
+
+        @foreach($actividads as $actividad)
+
+        <li class="col s12 m4">
+                <div class="card white small">
                     <div class="card-content">
-                        <span class="card-title">Convocatoria - Profesor de matemÃ¡ticas</span>
-                        <p class="light">Se necesita urgentemente un profesor de matemÃ¡ticas para trabajo continuo, se pagarÃ¡ el mÃƒÂ­nimo.</p>
+                        <span class="card-title">{{$actividad->tipo_actividad}} - {{$actividad->titulo}}</span>
+                        <p class="light">{{$actividad->descripcion}}.</p>
                     </div>
                     <div class="card-action grey darken-3 right-align">
                         <a href="#">Ver más</a>
                     </div>
                 </div>
             </li>
-            <li class="col s12 m4">
-                <div class="card small">
-                    <div class="card-content">
-                        <span class="card-title">Titulo</span>
-                        <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                            Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                    </div>
-                    <div class="card-action red darken-1 right-align">
-                        <a href="#">Ver más</a>
-                    </div>
-                </div>
-            </li>
-            <li class="col s12 m4">
-                <div class="card small">
-                    <div class="card-content">
-                        <span class="card-title">Titulo</span>
-                        <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                            Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                    </div>
-                    <div class="card-action white right-align">
-                        <a href="#">Ver más</a>
-                    </div>
-                </div>
-            </li>
-            <li class="col s12 m4">
-                <div class="card small">
-                    <div class="card-content">
-                        <span class="card-title">Titulo</span>
-                        <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                            uspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                    </div>
-                    <div class="card-action white right-align">
-                        <a href="#">Ver más</a>
-                    </div>
-                </div>
-            </li>
-            <li class="col s12 m4">
-                <div class="card small">
-                    <div class="card-content">
-                        <span class="card-title">Titulo</span>
-                        <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                            Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                    </div>
-                    <div class="card-action grey darken-3 right-align">
-                        <a href="#">Ver más</a>
-                    </div>
-                </div>
-            </li>
-            <li class="col s12 m4">
-                <div class="card small">
-                    <div class="card-content">
-                        <span class="card-title">Titulo</span>
-                        <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                            Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                    </div>
-                    <div class="card-action red darken-1 right-align">
-                        <a href="#">Ver más</a>
-                    </div>
-                </div>
-            </li>
+
+            @endforeach
+
+
         </ul>
     </div>
     <svg id="bottomShape" width="100%" height="50px" fill="#eeeeee" viewBox="0 0 1366 70" preserveAspectRatio="none" style="margin-bottom: -40px">
@@ -287,7 +253,7 @@
             <li class="col s12 m4">
                 <img class="responsive-img team-photo z-depth-2" src="images/foto2.jpg">
                 <div class="info-developers">
-                    <h5 class="light">David Felipe Sanchez Torres</h5>
+                    <h5 class="light">David Felipe Sánchez Torres</h5>
                     <div>
                         <span class="center">Desarrollador - Backend</span>
                     </div>
