@@ -1,0 +1,186 @@
+[33mcommit ffef79d35527ae2e1c08000effccd28303c448ad[m
+Author: Edison Solano <titojesct@gmail.com>
+Date:   Sun Apr 24 14:27:13 2016 -0500
+
+    Documentos del sprint 3
+
+[33mcommit b68f8622ed1c2669249630fcbae459528be6dea4[m
+Author: davidSanchezTorres <dvd_cheztorres@hotmail.com>
+Date:   Wed Apr 20 09:37:09 2016 -0500
+
+    Actualizar inde.php
+
+[33mcommit c45e7d2b12dab68c6661e5d506fa99761bc14ffd[m
+Author: Edison Solano <titojesct@gmail.com>
+Date:   Tue Apr 12 13:43:20 2016 -0500
+
+    Reordenando los archivos de documentacion
+
+[33mcommit 3c552d9c6d2beb3d149091d95865649a83dbfcc7[m
+Author: DavidSanchezRuiz <davidignacio.sanchez@uptc.edu.co>
+Date:   Sun Apr 10 22:20:56 2016 -0500
+
+    Pruebas de usabilidad
+
+[33mcommit 667223db700178727aeee7005cb8c23b0918f84e[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Sun Apr 10 12:30:59 2016 -0500
+
+    Agrego nueva corrección de diseño
+
+[33mcommit 3208ab9a5d62f35548959bc9e0052429b3427438[m
+Author: davidSanchezTorres <dvd_cheztorres@hotmail.com>
+Date:   Sun Apr 10 08:00:48 2016 -0500
+
+    Agrego código con lo de la base de datos
+
+[33mcommit 77bb156a6ec953932afbfe3b9650607a4c374288[m
+Merge: ab10dc6 dee91e2
+Author: davidSanchezTorres <dvd_cheztorres@hotmail.com>
+Date:   Sun Apr 10 02:27:08 2016 -0500
+
+    Index con actividades de la base de datos
+
+[33mcommit ab10dc6a18de7d4ec7c90536c5f2dcd6c373aff7[m
+Author: davidSanchezTorres <dvd_cheztorres@hotmail.com>
+Date:   Sun Apr 10 02:10:47 2016 -0500
+
+    Index con actividades de la base de datos
+
+[33mcommit dee91e2c280bf8666b56008a70d28df698563108[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Sat Apr 9 20:49:05 2016 -0500
+
+    Agrego corrección a  los archivos index.blade.php y search.blade.php
+
+[33mcommit 70687316bb49724b078cbf938939e7a699bab654[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Sat Apr 9 19:05:33 2016 -0500
+
+    Agrego corrección del prototipado para el diseño de la aplicacion
+
+[33mcommit e90056828ceec54da09c15cddaf9a42b725cf203[m
+Author: davidSanchezTorres <dvd_cheztorres@hotmail.com>
+Date:   Fri Apr 8 16:37:50 2016 -0500
+
+    Agregué modelo de base de datos a documentación
+
+[33mcommit 16d5f38100c9f1f4bab4dfb7aff229e22f48d155[m
+Author: davidSanchezTorres <dvd_cheztorres@hotmail.com>
+Date:   Fri Apr 8 12:56:26 2016 -0500
+
+    Correción de archivos
+
+[33mcommit dfc8b3272ad67d91718f6b7e81cf8b960a5ffe94[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Fri Apr 8 09:11:58 2016 -0500
+
+    Agrego actualizacion de diseño en index.html y una nueva seccion llamada search.html
+
+[33mcommit 7c43735a7a1290ba6a417439b21abe9f7db2c678[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Tue Apr 5 01:41:01 2016 -0500
+
+    Agrego actualizacion de frontend acoplado a laravel.
+
+[33mcommit d8043cf34d81420b964f7dfd659e314cf9e78205[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Fri Apr 1 21:29:27 2016 -0500
+
+    Agrego actualizacion del diseño web para la aplicacion
+
+[33mcommit 83636faa8f82da219d6f60eaa59f91c1a3b76814[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Mon Mar 28 21:40:50 2016 -0500
+
+    Actualizo diseño de la pagina web Mundocente
+
+[33mcommit ab6b486d7983c8b74f2eab6cb038e1256dc86974[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Sun Mar 27 14:31:35 2016 -0500
+
+    Agrego carpeta Mundocente con diseño inicial de la plataforma web
+
+[33mcommit 6f4db4f981fbd627a774868feb0044ba1407e147[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Sat Mar 26 23:54:41 2016 -0500
+
+    Cambio nombre de imagen index.png
+
+[33mcommit f5835fd6a465019d6ca5204b3ffd635a4fffe846[m
+Author: Angela Vega <angelavega803@gmail.com>
+Date:   Tue Mar 15 16:42:32 2016 -0500
+
+    Correccion informe 1
+
+[33mcommit 4cf4f09dd0af88f241202e933e3c01837fbbd0a0[m
+Author: DavidSanchezRuiz <davidignacio.sanchez@uptc.edu.co>
+Date:   Tue Mar 15 16:26:56 2016 -0500
+
+    Delete Informe-Sprint-1.docx
+
+[33mcommit 99778c89ec50cf4955dc41a0195599e7457d2e6b[m
+Author: David Sánchez <dvd_cheztorres@hotmail.com>
+Date:   Tue Mar 15 08:26:31 2016 -0500
+
+    Agregué imágenes con prototipos
+
+[33mcommit b1bfe374c7f5a8c93fef5558032da1acf30b1e36[m
+Author: EdisonSolano <titojesct@gmail.com>
+Date:   Mon Mar 14 14:06:26 2016 -0600
+
+    Imágenes correspondientes a los diseños fisicos
+
+[33mcommit faed74e9b65e59186b533ae49d37eecf3bd9c9a1[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Mon Mar 14 01:07:06 2016 -0400
+
+    Agrego documento Informe-Sprint-1 en la carpeta Documentacion
+
+[33mcommit 56e9334409d8be08989e814c1fbdf192a7882435[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Mon Mar 14 00:26:05 2016 -0400
+
+    Se actualizo el documento ProductBacklog_v1 y se añadio el documento Planecion-de-Sprint a la carpeta Documentacion
+
+[33mcommit b7b6405b58be65db137f898bd4b2410bf16dbc2f[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Sun Mar 13 23:52:37 2016 -0400
+
+    Actualizacion de documentacion
+
+[33mcommit 39e558aa4f2c3d9de24191b0613f68f2aa2dd1a6[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Sun Mar 13 23:16:10 2016 -0400
+
+    Actualizacion de documentacion
+
+[33mcommit 84bd3e48ad53e0a218d603a37bdf8e9fb238fe75[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Sun Mar 13 22:57:05 2016 -0400
+
+    Agrego carpeta para guardar documentación del Sprint, tambien agrego doc con Product Backlog
+
+[33mcommit 2af684c6c71ac37c388c3ffa2e8702c5232aee23[m
+Author: Angelitav <angelavega802@gmail.com>
+Date:   Sun Mar 13 13:32:11 2016 -0500
+
+    Added files via upload
+
+[33mcommit 02163574664052e59f1bcf952ed11247dc71f8f6[m
+Author: DavidSanchezRuiz <davidignacio.sanchez@uptc.edu.co>
+Date:   Sun Mar 13 13:20:44 2016 -0500
+
+    Added files via upload
+
+[33mcommit b39bc7a648c7bdb74d660290ffb2b0c93cd2f726[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Fri Mar 11 20:05:46 2016 -0500
+
+    Agrego imagenes de prototipos para el desarrollo de la pagina Mundocente
+
+[33mcommit bb9b917b0fed1bb30b1c30ff4d5e701ec65bf019[m
+Author: Diego Sosa <diego.sosa0704@gmail.com>
+Date:   Fri Mar 11 19:58:37 2016 -0500
+
+    first commit
