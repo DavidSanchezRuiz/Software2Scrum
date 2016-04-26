@@ -3,7 +3,7 @@
  */
 (function($){
     $(function(){
-        $('.buttonz-collapse').sideNav();
+        $('.button-collapse').sideNav();
     });
 })(jQuery);
 
@@ -16,13 +16,4 @@ $(document).ready(function(){
     $('.collapsible').collapsible({
         accordion : false
     });
-});
-//Banner del tamaño de la pantalla
-
-$(document).ready(function(){
-    $("#banner").css({"height":$(window).height()- 40+"px   "});
-});
-
-$(document).ready(function(){
-    $('.slider').slider({full_width: true});
 });

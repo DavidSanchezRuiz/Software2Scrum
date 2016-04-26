@@ -21,4 +21,12 @@ class PaginationController extends Controller
     public function search(){
         return view('search');   
     }
+
+    public function login(){
+        return view('login');
+    }
+
+    public function signup(){
+        return view('signup');
+    }
 }

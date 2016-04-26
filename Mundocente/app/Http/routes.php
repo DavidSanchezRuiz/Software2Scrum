@@ -16,6 +16,8 @@
 
 Route::get('/','PaginationController@index');
 Route::get('search','PaginationController@search');
+Route::get('login','PaginationController@login');
+Route::get('signup','PaginationController@signup');
 
 Route::resource('user','ControladorDocente');
 

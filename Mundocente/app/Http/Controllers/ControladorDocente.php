@@ -50,7 +50,8 @@ class ControladorDocente extends Controller
             'id_lugar'=>NULL,
             'password'=>bcrypt($request['passwordConfim']),
             ]);
-        return view('/search');
+        
+        return view('search');
     }
 
     /**
