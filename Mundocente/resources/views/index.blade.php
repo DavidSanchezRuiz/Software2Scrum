@@ -7,22 +7,24 @@
 
     <!-- CSS -->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/style.css" media="screen, projection"/>
+    
+    {!!Html::style('css/materialize.min.css')!!}
+    {!!Html::style('css/style.css')!!}
+    
 </head>
 <body>
 <!-- Navegador -->
 <section class="navbar-fixed">
     <nav class="grey darken-4">
         <div class="nav-wrapper container list">
-            <a href="#!" class="brand-logo"><img src="images/logoNav.png" style="width: 230px; height: 60px;"></a>
+            <a href="home" class="brand-logo"><img src="images/logoNav.png" style="width: 230px; height: 60px;"></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#banner" class="waves-effect waves-teal">Inicio</a></li>
                 <li><a href="#Services" class="waves-effect waves-teal">Servicios</a></li>
                 <li><a href="#News" class="waves-effect waves-teal">Reciente</a></li>
                 <li><a href="#Team" class="waves-effect waves-teal">Equipo</a></li>
                 <li><a href="#Contact" class="waves-effect waves-teal">Contacto</a></li>
-                <li><a class="waves-effect waves-light btn" href="signup.blade.php">Iniciar Sesión</a></li>
+                <li><a class="waves-effect waves-light btn" href="login">Iniciar Sesión</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav grey darken-3">
                 <li><a href="#banner" class="white-text">Inicio</a></li>
@@ -30,7 +32,7 @@
                 <li><a href="#News" class="white-text">Reciente</a></li>
                 <li><a href="#Team" class="white-text">Equipo</a></li>
                 <li><a href="#Contact" class="white-text">Contacto</a></li>
-                <li><a class="waves-effect waves-light btn" href="signup.blade.php">Iniciar Sesión</a></li>
+                <li><a class="waves-effect waves-light btn" href="login">Iniciar Sesión</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -48,7 +50,7 @@
                         <h3>Convocatorias Docentes</h3>
                         <h5 class="light grey-text text-lighten-3">Entérese de oportunidades laborales en el ámbito universitario</h5>
                         <a href="#Services"><button class="btn waves-effect waves-green green darken-1" type="button" name="action">Averigua Más</button></a>
-                        <a href="#Sign-up" class="modal-trigger"><button class="btn waves-effect waves-green cyan darken-3" type="button" name="action">Registrarse</button></a>
+                        <a href="singup" ><button class="btn waves-effect waves-green cyan darken-3" type="button" name="action">Registrarse</button></a>
                     </div>
                 </li>
                 <li>
@@ -57,7 +59,7 @@
                         <h3>Revistas Científicas</h3>
                         <h5 class="light grey-text text-lighten-3">Revise fácilmente las revistas científicas de su área para aumentar tu producción académica</h5>
                         <a href="#Services"><button class="btn waves-effect waves-green green darken-1" type="button" name="action">Averigua Más</button></a>
-                        <a href="#Sign-up" class="modal-trigger"><button class="btn waves-effect waves-green cyan darken-3" type="button" name="action">Registrarse</button></a>
+                        <a href="singup" ><button class="btn waves-effect waves-green cyan darken-3" type="button" name="action">Registrarse</button></a>
                     </div>
                 </li>
                 <li>
@@ -66,7 +68,7 @@
                         <h3>Eventos Académicos</h3>
                         <h5 class="light grey-text text-lighten-3">Conozca eventos universitarios para presentar ponencias o capacitarse</h5>
                         <a href="#Services"><button class="btn waves-effect waves-green green darken-1" type="button" name="action">Averigua Más</button></a>
-                        <a href="#Sign-up" class="modal-trigger"><button class="btn waves-effect waves-green cyan darken-3" type="button" name="action">Registrarse</button></a>
+                        <a href="signup" ><button class="btn waves-effect waves-green cyan darken-3" type="button" name="action">Registrarse</button></a>
                     </div>
                 </li>
             </ul>
@@ -118,21 +120,7 @@
     <div class="container">
         <h4 class="center-align grey-text light sub-title">Reciente</h4>
         <ul class="row">
-           @foreach($actividads as $actividad)
 
-        <li class="col s12 m4">
-                <div class="card white small">
-                    <div class="card-content">
-                        <span class="card-title">{{$actividad->tipo_actividad}} - {{$actividad->titulo}}</span>
-                        <p class="light">{{$actividad->descripcion}}.</p>
-                    </div>
-                    <div class="card-action grey darken-3 right-align">
-                        <a href="#">Ver más</a>
-                    </div>
-                </div>
-            </li>
-
-            @endforeach
         </ul>
     </div>
     <svg id="bottomShape2" width="100%" height="50px" fill="#eeeeee" viewBox="0 0 1366 70" preserveAspectRatio="none" style="margin-bottom: -40px">
@@ -332,8 +320,8 @@
     </div>
 </footer>
 <!--Scripts -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="js/init.js"></script>
+{!!Html::script('https://code.jquery.com/jquery-2.1.1.min.js')!!}
+{!!Html::script('js/materialize.min.js')!!}
+{!!Html::script('js/init.js')!!}
 </body>
 </html>

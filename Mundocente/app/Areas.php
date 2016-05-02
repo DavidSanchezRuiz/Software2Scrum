@@ -4,14 +4,14 @@ namespace Mundocente;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Actividad extends Model
+class Areas extends Model
 {
-    protected $table = 'actividads';
+     protected $table = 'areas';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['title', 'tipo','enlace','description', 'fecha_inicio'];
+    protected $fillable = ['name'];
 }

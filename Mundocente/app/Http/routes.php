@@ -11,16 +11,27 @@
 |
 */
 
+Route::resource('auth','ControllerHome');
+Route::get('/','ControllerHome@inicio');
+Route::get('login','ControllerHome@ingresar');
 
-//Controlador de páginas principales
 
-Route::get('/','PaginationController@index');
-Route::get('search','PaginationController@search');
-Route::get('login','PaginationController@login');
-Route::get('signup','PaginationController@signup');
-
-Route::resource('user','ControladorDocente');
+Route::resource('singup','ControllerRegister');
 
 
 
+Route::resource('user','ControllerLogin');
+Route::get('home','ControllerLogin@index');
+Route::get('settings','ControllerLogin@configurar');
+Route::get('logout','ControllerLogin@salir');
 
+
+
+Route::resource('preferencias','ControllerPreferences');
+
+
+
+Route::resource('search','ControllerSearch');
+Route::get('convocatorias','ControllerSearch@mostrarConvocatorias');
+Route::get('revistas','ControllerSearch@mostrarRevistas');
+Route::get('eventos','ControllerSearch@mostrarEvento');

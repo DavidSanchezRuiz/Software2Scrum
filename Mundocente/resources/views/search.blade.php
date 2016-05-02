@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Mundocente</title>
+    <title>Busqueda</title>
     <!-- CSS -->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/style.css" media="screen, projection"/>
+    {!!Html::style('css/materialize.min.css')!!}
+    {!!Html::style('css/style.css')!!}
 </head>
 <body>
 
@@ -18,16 +18,23 @@
             <a href="search.html" class="brand-logo"><img src="images/logoNav.png" style="width: 230px; height: 60px;"></a>
             <ul class="right hide-on-med-and-down">
                 <li class="input-field">
-                    <input id="search" type="search" autocomplete="off" required class="grey" style="width: 300px">
-                    <label for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
+
+                {!!Form::open(['route'=>'search.store'])!!}
+
+                    <input id="search" type="search" name="palabra-clave" autocomplete="off" placeholder="Ingrese título de publicación" required="required" class="grey" style="width: 300px">
+                    <label for="search"></label><i class="material-icons">{!!Form::submit('search',['class'=>'btn-flat buton-search', 'title'=>'Click para buscar'])!!}</i>
+                    
+                {!!Form::close()!!}
                 </li>
-                <li><a href="#" class="waves-effect waves-teal"><i class="material-icons right">person_pin</i>Cuenta</a></li>
-                <li><a href="#" class="waves-effect waves-teal"><i class="material-icons right">power_settings_new</i>Salir</a></li>
+                <li><a href="#" class="waves-effect waves-teal"><i class="material-icons right">person_pin</i>{!!Auth::user()->name!!}</a></li>
+                <li><a href="settings" class="waves-effect waves-teal"><i class="material-icons right">settings</i>Configuración</a></li>
+                <li><a href="logout" class="waves-effect waves-teal"><i class="material-icons right">system_update_alt</i>Salir</a></li>
+                
             </ul>
             <ul id="nav-mobile" class="side-nav">
-                <li><a href="#">Cuenta</a></li>
-                <li><a href="#">Salir</a></li>
+                <li><a href="home">Actividades</a></li>
+                <li><a href="settings">Cuenta</a></li>
+                <li><a href="logout">Salir</a></li>
             </ul>
             <a href="#nav-mobile" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -45,122 +52,79 @@
                             <span class="card-title"><i class="material-icons card-title-center">filter_list</i>Tipo</span>
                             <div class="divider"></div>
                             <div class="card-content center" style="min-height:0px">
-                                <div class="filter-button"><a class="btn waves-effect waves-light btn-type orange" href="#">Convocatorias docentes</a></div>
-                                <div class="filter-button"><a class="btn waves-effect waves-light btn-type red" href="#">Revistas científicas</a></div>
-                                <div class="filter-button"><a class="btn waves-effect waves-light btn-type blue" href="#">Eventos académicos</a></div>
+                                <div class="filter-button"><a class="btn waves-effect waves-light btn-type green accent-4" href="home">Mostrar todo</a></div>
+                                <div class="filter-button"><a class="btn waves-effect waves-light btn-type orange" href="convocatorias">Convocatorias docentes</a></div>
+                                <div class="filter-button"><a class="btn waves-effect waves-light btn-type red" href="revistas">Revistas científicas</a></div>
+                                <div class="filter-button"><a class="btn waves-effect waves-light btn-type blue" href="eventos">Eventos académicos</a></div>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="card">
-                            <span class="card-title"><i class="material-icons card-title-center">description</i>Interés</span>
+                            <span class="card-title"><i class="material-icons card-title-center">description</i>Búsqueda específica</span>
                             <div class="divider"></div>
                             <div class="card-content" style="min-height: 0px">
-                                <select>
-                                    <option value="" disabled selected>Area</option>
-                                    <option value="1">Area 1</option>
-                                    <option value="2">Area 2</option>
-                                    <option value="3">Area 3</option>
-                                </select>
+
+                            <div style="padding-top: 10px">
+                                <label class="left grey-text text-darken-3">Por Universidad</label>
+
+                                {!!Form::select('search_univer', $institutes, Auth::user()->institute_id )!!}
+
+                            </div>
+                                
                                 <br>
-                                <select>
-                                    <option value="" disabled selected>Universidad</option>
-                                    <option value="1">Universidad 1</option>
-                                    <option value="2">Universidad 2</option>
-                                    <option value="3">Universidad 3</option>
-                                </select>
+
+                                <div style="padding-top: 10px">
+                                <label class="left grey-text text-darken-3">Por Área</label>
+
+                                {!!Form::select('search_area', $areas)!!}
+
+                            </div>
+                               
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="col s12 m9">
-                <h4 class="light">Resultado</h4>
+                <h4 class="light">Resultados: </h4>
                 <ul class="row">
-                    <li class="col s12 m6">
-                        <div class="card">
+                {!!$actividads->render()!!}
+
+
+                @foreach($actividads as $actividad)
+
+                 <li class="col s12 m12" >
+                        <div class="card" style="height: 200px">
                             <div class="card-content">
-                                <span class="card-title">Titulo</span>
-                                <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                                    Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
+                                <h5 style="float: right;">{{$actividad->tipo}}</h5>
+                                <span class="card-title"> {{$actividad->title}}</span>
+                                <p class="light">{{$actividad->description}}</p>
+                                    <div class="card-action">
+                              
+                              <a href="{{$actividad->enlace}}">Leer más</a>
+
                             </div>
-                            <div class="card-action blue-grey darken-4 right-align">
-                                <a href="#">Ver más</a>
                             </div>
+                           
                         </div>
                     </li>
-                    <li class="col s12 m6">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Titulo</span>
-                                <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                                    Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                            </div>
-                            <div class="card-action blue-grey darken-4 right-align">
-                                <a href="#">Ver más</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col s12 m6">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Titulo</span>
-                                <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                                    Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                            </div>
-                            <div class="card-action blue-grey darken-4 right-align">
-                                <a href="#">Ver más</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col s12 m6">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Titulo</span>
-                                <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                                    uspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                            </div>
-                            <div class="card-action blue-grey darken-4 right-align">
-                                <a href="#">Ver más</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col s12 m6">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Titulo</span>
-                                <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                                    Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                            </div>
-                            <div class="card-action blue-grey darken-4 right-align">
-                                <a href="#">Ver más</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col s12 m6">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Titulo</span>
-                                <p class="light">Cras pharetra efficitur purus id condimentum. Fusce nec tempor velit, quis tincidunt elit.
-                                    Suspendisse suscipit leo ipsum, a gravida nunc consectetur non. Nulla vel sodales leo.</p>
-                            </div>
-                            <div class="card-action blue-grey darken-4 right-align">
-                                <a href="#">Ver más</a>
-                            </div>
-                        </div>
-                    </li>
-                    <ul class="pagination center">
-                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                        <li class="waves-effect active grey darken-2"><a href="#!">1</a></li>
-                        <li class="waves-effect"><a href="#!">2</a></li>
-                        <li class="waves-effect"><a href="#!">3</a></li>
-                        <li class="waves-effect"><a href="#!">4</a></li>
-                        <li class="waves-effect"><a href="#!">5</a></li>
-                        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                    </ul>
+
+                @endforeach
+
+                   
+                  
+                 
+                  
+                   
                 </ul>
+
+
             </div>
+
         </div>
+
+        
     </div>
 </section>
 
@@ -182,14 +146,14 @@
     <div class="footer-copyright blue-grey darken-4">
         <div class="container">
             © 2016 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="http://materializecss.com/sass.html"><i class="material-icons">book</i></a>
+            <a class="grey-text text-lighten-4 right" href=""><i class="material-icons">book</i></a>
         </div>
     </div>
 </footer>
 
 <!--Scripts -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="js/init.js"></script>
+{!!Html::script('https://code.jquery.com/jquery-2.1.1.min.js')!!}
+{!!Html::script('js/materialize.min.js')!!}
+{!!Html::script('js/init.js')!!}
 </body>
 </html>
