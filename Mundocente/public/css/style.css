@@ -29,15 +29,17 @@ padding-top: 27px;
 padding-bottom: 150px;
 }
 */
-.buton-search{
+.buton-search {
     padding: 0px;
     width: 50px;
     padding-left: 0px;
     margin-top: -10px;
 }
-.buton-search:hover{
+
+.buton-search:hover {
     opacity: 0.1;
 }
+
 .services ul {
     padding-top: 0px;
     padding-bottom: 30px;
@@ -138,7 +140,7 @@ padding-bottom: 150px;
     padding-bottom: 8px;
 }
 
-.body-login{
+.body-login {
     background-color: white;
 }
 
@@ -150,20 +152,20 @@ padding-bottom: 150px;
     top: 0;
 }
 
-.login-main .login-part1 .container ul li{
+.login-main .login-part1 .container ul li {
     padding: 0 7% 0;
 }
 
-.login-main .login-part1 .container ul li div div img{
+.login-main .login-part1 .container ul li div div img {
     height: 40px;
     width: 40px;
 }
 
-.login-main .login-part1 .container ul li h4{
+.login-main .login-part1 .container ul li h4 {
     font-size: 1.8em;
 }
 
-.login-main .login-part1 .container ul li form div{
+.login-main .login-part1 .container ul li form div {
     padding-bottom: 10px;
 }
 
@@ -191,25 +193,25 @@ padding-bottom: 150px;
     top: 0;
 }
 
-.signup-main .signup-part1 .container ul li{
+.signup-main .signup-part1 .container ul li {
     padding: 0 7% 0;
 }
 
-.signup-main .signup-part1 .container ul li div div img{
+.signup-main .signup-part1 .container ul li div div img {
     height: 40px;
     width: 40px;
 }
 
-.signup-main .signup-part1 .container ul li h4{
+.signup-main .signup-part1 .container ul li h4 {
     font-size: 1.8em;
 }
 
-.signup-main .signup-part1 .container ul li form div{
+.signup-main .signup-part1 .container ul li form div {
     padding-bottom: 10px;
 }
 
 .signup-main .signup-part2 {
-    height: 102.5%;
+    height: 115.5%;
     padding: 10% 5%;
 }
 
@@ -226,23 +228,24 @@ padding-bottom: 150px;
 
 /* Cuenta */
 
-.container-account{
-    padding-top: 0;
-    margin:0 auto;
-    max-width:800px;
-    min-height:300px;
-    width:90%;
+.container-account {
+    margin: auto;
+    max-width: 800px;
+    height: auto;
 }
 
-@media only screen and (min-width: 601px){
-    .container-account{width:85%}
+@media only screen and (min-width: 601px) {
+    .container-account {
+        width: 85%
+    }
 }
 
-@media only screen and (min-width: 993px){
-    .container-account{width:90%}
+@media only screen and (min-width: 993px) {
+    .container-account {
+        width: 90%
+    }
 }
 
-.container-account .row{
-      margin-left:-0.75rem;
-      margin-right:-0.75rem
-  }
+.container-account .card .card-content ul li {
+    margin-top: 20px;
+}

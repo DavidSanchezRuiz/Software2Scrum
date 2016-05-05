@@ -120,7 +120,7 @@
     <div class="container">
         <h4 class="center-align grey-text light sub-title">Reciente</h4>
         <ul class="row">
-
+                
         </ul>
     </div>
     <svg id="bottomShape2" width="100%" height="50px" fill="#eeeeee" viewBox="0 0 1366 70" preserveAspectRatio="none" style="margin-bottom: -40px">

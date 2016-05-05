@@ -3,7 +3,7 @@
  */
 (function($){
     $(function(){
-        $('.buttonz-collapse').sideNav();
+        $('.button-collapse').sideNav();
     });
 })(jQuery);
 
