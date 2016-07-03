@@ -23,6 +23,7 @@ Route::resource('singup','ControllerRegister');
 Route::resource('user','ControllerLogin');
 Route::get('home','ControllerLogin@index');
 Route::get('settings','ControllerLogin@configurar');
+Route::get('publication','ControllerLogin@configurarPublicaciones');
 Route::get('logout','ControllerLogin@salir');
 
 

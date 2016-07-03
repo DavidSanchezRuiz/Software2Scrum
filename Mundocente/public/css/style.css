@@ -3,36 +3,53 @@ html {
 }
 
 body {
-    background-color: #eeeeee;
+    background-color: #f5f5f5;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-p, h5 {
-    font-size: 1.25em;
+p {
+    font-size: 1.15em;
 }
 
-.sub-title {
-    font-size: 2.5em;
+h5 {
+    font-size: 1.35em;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+span {
+    font-size: 1.2em;
+}
+
+.line-separator{
+    width: 130px;
+    height: 2px;
+    margin: 15px auto;
+    background-color: #424242;
+    border-radius: 10%;
 }
 
 .list ul li:hover {
     background-color: #37474f;
 }
 
-/*
-.banner{
-    background: url(../images/banner.jpg) no-repeat fixed 0% 0%/cover;
+.banner {
+    background: url(../images/banner1.jpg) no-repeat fixed 0% 140%/cover;
     cursor: default;
 }
 
+/*
 .banner-container{
 padding-top: 27px;
 padding-bottom: 150px;
 }
 */
 .buton-search {
-    padding: 0px;
     width: 50px;
-    padding-left: 0px;
     margin-top: -10px;
 }
 
@@ -40,27 +57,44 @@ padding-bottom: 150px;
     opacity: 0.1;
 }
 
-.services ul {
-    padding-top: 0px;
-    padding-bottom: 30px;
+div.container-image {
+    width: 100px;
+    margin: auto;
+    border-radius: 50%;
 }
 
-.image-services {
-    width: 150px;
-    height: 150px;
+img.image-services {
+    display: block;
+    margin: 50px auto;
+    background-color: rgba(33, 33, 33, 1);
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 30px rgba(33, 33, 33, 0.2);
+    transition: box-shadow 0.3s;
+}
+
+.container-image:hover img.image-services {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, .6);
 }
 
 .news {
-    background: url(../images/background-image.jpg) no-repeat 0% 0%/cover;
     cursor: default;
     padding-top: 0px;
+    /*background: url(../images/background-image.jpg) no-repeat 0% 0%/cover;
     transform: translateX(0px);
     opacity: 1;
+    */
 }
 
-.news .container ul li {
-    padding-top: 30px;
-    padding-bottom: 15px;
+.news .container ul {
+    padding: 20px auto;
+}
+
+.card-index {
+    min-height: 350px;
+    max-height: 350px;
 }
 
 #bottomShape {
@@ -68,7 +102,7 @@ padding-bottom: 150px;
 }
 
 #Contact {
-    background: url(../images/background-image.jpg) no-repeat 0% 0%/cover;
+    /*background: url(../images/background-image.jpg) no-repeat 0% 0%/cover;*/
     cursor: default;
     padding-top: 0px;
 }
@@ -108,12 +142,56 @@ padding-bottom: 150px;
 
 .info-developers {
     width: 100%;
-    height: 150px;
+    height: 100%;
 }
 
-.team-photo {
+.effect{
     width: 200px;
+    max-width: 100%;
     height: 200px;
+    max-height: 200px;
+    position:relative;
+    overflow:hidden;
+    margin:auto;
+    border-radius: 50%;
+}
+
+.effect figcaption{
+    display: table;
+    border-radius: 50%;
+}
+
+.effect figcaption div{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 18px;
+    border-radius: 50%;
+    font-size: 0.9em;
+}
+
+.effect img.team-photo {
+    position:absolute;
+    left:0;
+    bottom:0;
+    top: 0;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.effect:hover figcaption{
+    background-color: rgba(33,33,33,1);
+    height:100%;
+    width: 100%;
+    text-align: center;
+    transition: .1s;
+    overflow: hidden;
+}
+
+.effect img.team-photo:hover {
+    opacity: 0.2;
+    transition: .5s;
+    overflow: hidden;
 }
 
 .scrollspy {
@@ -211,7 +289,7 @@ padding-bottom: 150px;
 }
 
 .signup-main .signup-part2 {
-    height: 115.5%;
+    height: 130%;
     padding: 10% 5%;
 }
 
@@ -231,7 +309,7 @@ padding-bottom: 150px;
 .container-account {
     margin: auto;
     max-width: 800px;
-    height: auto;
+    height: 100%;
 }
 
 @media only screen and (min-width: 601px) {
@@ -248,4 +326,28 @@ padding-bottom: 150px;
 
 .container-account .card .card-content ul li {
     margin-top: 20px;
+}
+
+.form-account div {
+    margin: 15px auto;
+}
+
+.form-account div label{
+    font-size: 0.95em;
+}
+
+/* Modal publicaciones*/
+
+.form-publish div {
+    margin: 15px auto;
+}
+
+.form-publish div label{
+    font-size: 0.95em;
+}
+
+/* Nav size */
+
+.nav-size li {
+    min-width:100px;
 }

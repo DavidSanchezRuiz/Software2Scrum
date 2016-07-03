@@ -39,20 +39,26 @@ class ControllerLogin extends Controller
         
     }
 
-    public function configurar(){
+    public function configurar()
+    {
 
-        $areas = Areas::lists('name','id');
-        $institutes = Institute::lists('name','id');
+        $areas = Areas::lists('name', 'id');
+        $institutes = Institute::lists('name', 'id');
 
-        
-       
-       $preferencias = DB::table('areas')
+
+        $preferencias = DB::table('areas')
             ->join('preferencias', 'areas.id', '=', 'preferencias.areas_id')
             ->select('areas.*', 'preferencias.users_email', 'preferencias.id')
             ->get();
 
-        return view('account',compact('institutes','areas','preferencias'));
+        return view('account', compact('institutes', 'areas', 'preferencias'));
     }
+
+    public function configurarPublicaciones()
+    {
+        return view('publication');
+    }
+
     public function salir(){
         Auth::logout();
         return Redirect::to('/');

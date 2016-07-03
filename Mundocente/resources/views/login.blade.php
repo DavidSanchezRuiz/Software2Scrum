@@ -7,7 +7,7 @@
 
     <!-- CSS -->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     {!!Html::style('css/materialize.min.css')!!}
+    {!!Html::style('css/materialize.min.css')!!}
     {!!Html::style('css/style.css')!!}
 </head>
 <body class="body-login">
@@ -16,10 +16,10 @@
     <div class="col s12 m7 white login-part1">
         <div class="container">
             <ul class="row ">
-                <li class="col s12 m12" style="padding: 0px"><a href="home">
-                    <img src="images/logoNav.png" style="width: 230px;height: 60px">
-                </a>
-                    
+                <li class="col s12 m12" style="padding: 0px"><a href="/">
+                        <img src="images/logoNav.png" style="width: 230px;height: 60px">
+                    </a>
+
                 </li>
                 <li class="col s12 m12">
                     <h4 class="light">Iniciar sesión</h4>
@@ -28,40 +28,42 @@
                 <li class="col s12 m12">
                     <div class="center row">
                         <div class="col s12 m12">
-                            <a href="#" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Facebook"><img src="images/facebook-login.png" alt=""></a>
-                            <a href="#" class="tooltipped" data-position="bottom    " data-delay="50" data-tooltip="Google"><img src="images/google-plus.png" alt=""></a>
+                            <a href="#" id="fbStatus" class="tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Facebook"><img src="images/facebook-login.png" alt=""></a>
+                            <a href="#" class="tooltipped" data-position="bottom    " data-delay="50"
+                               data-tooltip="Google"><img src="images/google-plus.png" alt=""></a>
                         </div>
                         <div class="col s12 m12 light" style="padding-top: 15px;">
                             <span style="font-size: 1.5em">-----------------  o  -----------------</span>
                         </div>
                     </div>
-                    
+
                     {!!Form::open(['route'=>'user.store', 'method'=>'POST'])!!}
                     @include('alerts.errors')
                     @include('alerts.confirm')
-                        <div class="input-field ">
-                            
-                            {!!Form::email('email',null,['class'=>'validate'])!!}
-                            <label for="email-login">Correo</label>
-                        </div>
-                        <div class="input-field">
-                            
-                            {!!Form::password('password',['class'=>'validate'])!!}
-                            <label for="password">Contraseña</label>
-                        </div>
-                        <div class="col s12 center" style="padding-top: 30px">
-                            
-                            {!!Form::submit('Ingresar',['class'=>'btn waves-effect waves-green cyan darken-3'])!!}
-                        </div>
+                    <div class="input-field ">
+
+                        {!!Form::email('email',null,['class'=>'validate'])!!}
+                        <label for="email-login">Correo</label>
+                    </div>
+                    <div class="input-field">
+
+                        {!!Form::password('password',['class'=>'validate'])!!}
+                        <label for="password">Contraseña</label>
+                    </div>
+                    <div class="col s12 center" style="padding-top: 30px">
+
+                        {!!Form::submit('Ingresar',['class'=>'btn waves-effect waves-green cyan darken-3'])!!}
+                    </div>
                     {!!Form::close()!!}
-                    
+
                 </li>
             </ul>
             <div id="login-failed-panel" class="red-text center-align" style="display: none;">
                 Login failed, please try again.
             </div>
             <div class="section center">
-                <a  href="#">¿Olvido su contraseña?</a>
+                <a href="#">¿Olvido su contraseña?</a>
             </div>
         </div>
     </div>

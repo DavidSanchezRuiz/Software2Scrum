@@ -11,7 +11,7 @@
 
 
 </head>
-<body class="body-account">
+<body class="body-publication">
 
 <!-- Navegador -->
 <section class="navbar">
@@ -200,7 +200,7 @@
     </div>
 </div>
 
-<!-- Modal Evento -->
+<!-- Moda Editar l Evento -->
 <div id="evento" class="modal modal-fixed-footer">
     <div class="modal-content">
         <div class="container">
@@ -258,135 +258,228 @@
 
 <div class="container-account">
     <div class="card">
-        @include('alerts.change')
-        @include('alerts.errors')
-        <div style="padding: 10px">
-            <span class="card-title"><i class="material-icons card-title-center">filter_list</i>Areas de interes</span>
+        <div style="padding:10px">
+            <span class="card-title"><i class="material-icons card-title-center">filter_list</i>Publicaciones realizadas</span>
         </div>
         <div class="divider"></div>
-        <div class="card-content" style="margin: auto">
-            <ul class="row">
+        <div class="card-content">
+            <ul class="row" style="margin: auto">
                 <li class="col s12 m12">
-                    <span class="light">Agregue un área a la lista de preferencia</span>
-                    <ul class="row">
-                        {!!Form::open(['route'=>'preferencias.store'])!!}
-                        <li class="col s12 m8">
-                            <label class="left grey-text text-darken-3 light" style="font-size: medium">Seleccione un área de interés</label>
-                            {!!Form::select('select_option', $areas,null,['class'=>'browser-default'])!!}
-                        </li>
-                        <li class="col s12 m4" style="margin-top: 50px; left: 0; float: left">
-                            {!!Form::submit('Agregar',['class'=>'btn waves-effect waves-green cyan darken-3 right'])!!}
-                        </li>
-                        {!!Form::close()!!}
-                    </ul>
-                </li>
-                <li class="col s12 m12">
-                    <div>
-                        <span class="light">Áreas de preferencia: </span>
-                    </div>
-                    <!--Lee solo las áreas de gusto-->
-                    @foreach($preferencias as $pref)
+                    <table>
+                        <thead>
+                        <tr>
+                            <th data-field="id">Tipo</th>
+                            <th data-field="institute">Universidad o Instituto</th>
+                            <th data-field="name">Nombre o Cargo</th>
+                        </tr>
+                        </thead>
 
-                        @if($pref->users_email==Auth::user()->email)
-
-                            <div class="chip" style="margin-bottom: 10px;margin-left: 10px">
-                                {{$pref->name}}
-                                <i class="material-icons"><a type="submit">close</a></i>
-                            </div>
-                        @endif
-
-                    @endforeach
+                        <tbody>
+                        <tr>
+                            <td>Convocatoria</td>
+                            <td>UPTC</td>
+                            <td>Profesor matematicas</td>
+                            <td><a class="btn waves-effect waves-light green modal-trigger" href="#editar-convocatoria">Editar</a></td>
+                            <td><a class="btn waves-effect waves-light red">Borrar</a></td>
+                        </tr>
+                        <tr>
+                            <td>Revista</td>
+                            <td>UPTC</td>
+                            <td>Profesor matematicas</td>
+                            <td><a class="btn waves-effect waves-light green modal-trigger" href="#editar-revista">Editar</a></td>
+                            <td><a class="btn waves-effect waves-light red">Borrar</a></td>
+                        </tr>
+                        <tr>
+                            <td>Evento Academico</td>
+                            <td>UPTC</td>
+                            <td>Profesor matematicas</td>
+                            <td><a class="btn waves-effect waves-light green modal-trigger" href="#editar-evento">Editar</a></td>
+                            <td><a class="btn waves-effect waves-light red">Borrar</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </li>
             </ul>
         </div>
     </div>
 </div>
 
-<div class="container-account">
-    <div class="card">
-        <div style="padding: 10px 10px 10px">
-                <span class="card-title"><i
-                            class="material-icons card-title-center">filter_list</i>Datos Personales</span>
-        </div>
-        <div class="divider"></div>
-        <div class="card-content">
-            <form class="row form-account">
-                {!!Form::open(['route'=>['user.update', Auth::user()->id], 'method'=>'PUT'])!!}
-                <div class="input-field col s12 m12">
-                    <input id="first-name" name="name" type="text" required class="validate"
-                           value="{!!Auth::user()->name!!}">
+<!-- +==============================================================================================================- -->
 
-                    <label for="first-name">Nombres</label>
-                </div>
-                <div class="input-field col s12 m12">
-                    <input id="first-name" name="last_name" type="text" class="validate"
-                           value="{!!Auth::user()->last_name!!}">
+<!-- Modal Editar Convocatoria -->
+<div id="editar-convocatoria" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <div class="container">
+            <h3 class="light">Editar Convocatoria</h3>
+            <p class="light">Para realizar publicaciones de las diferentes actividades de la pagina, el siguiente formulario debe ser diligenciado en su totalidad.</p>
+            <form class="row form-publish">
 
-                    <label for="first-name">Apellidos</label>
-                </div>
-                <div class="input-field col s12 m12">
-                    <input id="email" name="email" type="email" required class="validate"
-                           value="{!!Auth::user()->email!!}">
-
-                    <label for="email">Correo</label>
-                </div>
-                <div class="col s12 m12" style="padding-top: 10px">
-                    <label class="left grey-text text-darken-3">Universidad</label>
-
-                    {!!Form::select('universidad', $institutes, Auth::user()->institute_id ,['class'=>'browser-default'])!!}
-                </div>
                 <div class="col s12 m12">
-                    <p>
-                        <input type="checkbox" value="buscador" id="test5" name="permiso" />
-                        <label for="test5" class="black-text light">Solicitar permisos de publicador.</label>
-                        <a class="waves-effect waves-light modal-trigger tooltipped" data-tooltip="Más información"
-                           href="#modal1"><img style="height: 25px; width: 25px" src="/images/info.png"></a>
-                    </p>
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Publicador</h4>
-                            <p>Texto informativo...</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#"
-                               class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
-                        </div>
-                    </div>
+                    <label>Ciudad</label>
+                    <select class="browser-default">
+                        <option value="" disabled selected>Seleccione una opcion.</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
                 </div>
-                <div class="divider col 12 m12"></div>
-                <span class="light">Actualizar contraseña</span>
-                <div class="input-field  col s12 m12">
-                    <input name="passwordNew" id="new-password" type="password" class="validate">
-                    <label for="new-password">Nueva contraseña</label>
+
+                <div class="col s12 m12">
+                    <label>Universidad</label>
+                    <select class="browser-default">
+                        <option value="" disabled selected>Seleccione una opcion.</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
                 </div>
-                <br>
-                {!!Form::submit('Guardar cambios',['class'=>'btn waves-effect waves-green cyan darken-3 right'])!!}
-                {!!Form::close()!!}
+
+                <div class="col s12 m12">
+                    <label>Area</label>
+                    <select class="browser-default">
+                        <option value="" disabled selected>Seleccione una opcion.</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+
+                <div class="input-field col s12 m12">
+                    <input id="cargo" type="text" class="validate">
+                    <label class="active" for="cargo">Cargo</label>
+                </div>
+
+                <div class="col s12 m12">
+                    <label>Fecha inicio</label>
+                    <input type="date" class="datepicker">
+                </div>
+
+                <div class="col s12 m12">
+                    <label>Fecha fin</label>
+                    <input type="date" class="datepicker">
+                </div>
+
+                <div class="input-field col s12 m12">
+                    <input id="enlace" type="text" class="validate">
+                    <label class="active" for="enlace">Enlace</label>
+                </div>
             </form>
         </div>
     </div>
-</div>
-
-<div class="container-account">
-    <div class="card-panel">
-        <div style="padding-bottom: 10px">
-            <span style="font-size: 1.6em;" class="light"><i class="material-icons card-title-center">filter_list</i>Borrar cuenta</span>
-        </div>
-        <div class="divider"></div>
-        <ul class="row">
-            <li class="col s12 m8">
-                <span class="light">Borre su cuenta de mundocente</span>
-            </li>
-            <li class="col s12 m4">
-                {!!Form::open(['route'=>['user.destroy', Auth::user()->id], 'method'=>'DELETE'])!!}
-                {!!Form::submit('Eliminar cuenta', ['class'=>'btn waves-effect red right header-btn'])!!}
-                {!!Form::close()!!}
-            </li>
-        </ul>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancelar</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Editar</a>
     </div>
 </div>
 
-<footer class="page-footer grey lighten-3">
+<!-- Modal Editar Revista -->
+<div id="editar-revista" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <div class="container">
+            <h3 class="light">Editar Revista Científica</h3>
+            <p class="light">Para realizar publicaciones de las diferentes actividades de la pagina, el siguiente formulario debe ser diligenciado en su totalidad.</p>
+            <form class="row form-publish">
+
+                <div class="input-field col s12 m12">
+                    <input id="instituto" type="text" class="validate">
+                    <label class="active" for="instituto">Univiersidad o instituto</label>
+                </div>
+
+                <div class="input-field col s12 m12">
+                    <input id="titulo" type="text" class="validate">
+                    <label class="active" for="titulo">Titulo</label>
+                </div>
+
+                <div class="col s12 m12">
+                    <label>Area</label>
+                    <select class="browser-default">
+                        <option value="" disabled selected>Seleccione una opcion.</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+
+                <div class="input-field col s12 m12">
+                    <input id="index" type="text" class="validate">
+                    <label class="active" for="index">Indexada en</label>
+                </div>
+
+                <div class="col s12 m12">
+                    <label>Fecha limite</label>
+                    <input type="date" class="datepicker">
+                </div>
+
+                <div class="input-field col s12 m12">
+                    <input id="enlace" type="text" class="validate">
+                    <label class="active" for="enlace">Enlace</label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancelar</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Editar</a>
+    </div>
+</div>
+
+<!-- Modal Evento -->
+<div id="editar-evento" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <div class="container">
+            <h3 class="light">Editar Evento Académico</h3>
+            <p class="light">Para realizar publicaciones de los diferetes enventos en la pagina, el siguiente formulario debe ser diligenciado en su totalidad.</p>
+            <form class="row form-publish">
+
+                <div class="input-field col s12 m12">
+                    <input id="nombre-evento" type="text" class="validate">
+                    <label class="active" for="nombre-evento">Nombre evento</label>
+                </div>
+
+                <div class="col s12 m12">
+                    <label>Ciudad</label>
+                    <select class="browser-default">
+                        <option value="" disabled selected>Seleccione una opcion.</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+
+                <div class="col s12 m12">
+                    <label>Area</label>
+                    <select class="browser-default">
+                        <option value="" disabled selected>Seleccione una opcion.</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+
+                <div class="col s12 m12">
+                    <label>Fecha inicio</label>
+                    <input type="date" class="datepicker">
+                </div>
+
+                <div class="col s12 m12">
+                    <label>Fecha fin</label>
+                    <input type="date" class="datepicker">
+                </div>
+
+                <div class="input-field col s12 m12">
+                    <input id="enlace" type="text" class="validate">
+                    <label class="active" for="enlace">Enlace</label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancelar</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Editar</a>
+    </div>
+</div>
+
+<footer id="footer" class="page-footer grey lighten-3">
     <div class="footer-copyright blue-grey darken-4">
         <div class="container">
             © 2016 Copyright

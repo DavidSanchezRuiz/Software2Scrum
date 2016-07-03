@@ -9,6 +9,7 @@
 
 // Paralax
 $(document).ready(function(){
+    Materialize.updateTextFields();
     $('.parallax').parallax();
     $('.scrollspy').scrollSpy();
     $('.modal-trigger').leanModal();
@@ -16,11 +17,10 @@ $(document).ready(function(){
     $('.collapsible').collapsible({
         accordion : false
     });
-});
-//Banner del tamaño de la pantalla
-
-$(document).ready(function(){
-    $("#banner").css({"height":$(window).height()- 40+"px   "});
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
 });
 
 $(document).ready(function(){

@@ -17,7 +17,7 @@
         <div class="container">
             <ul class="row ">
 
-                <li class="col s12 m12" style="padding: 0px"><a href="home">
+                <li class="col s12 m12" style="padding: 0px"><a href="/">
                         <img src="images/logoNav.png" style="width: 230px;height: 60px">
                     </a>
 
@@ -44,7 +44,7 @@
 
                     <div class="input-field">
                         {!!Form::text('nombre',null,['class'=>'validate'])!!}
-                        <label for="email-login">Nombre</label>
+                        <label for="email-login">Nombre y apellido</label>
                     </div>
                     <div class="input-field">
 
@@ -68,18 +68,31 @@
 
                     </div>
 
-
+                    <div>
+                        <p>
+                            <input type="checkbox" value="buscador" id="test5" name="permiso" />
+                            <label for="test5" class="black-text">Solicitar permisos de publicador.</label>
+                            <a class="waves-effect waves-light modal-trigger tooltipped" data-tooltip="Más información"
+                               href="#modal1"><img style="height: 25px; width: 25px" src="/images/info.png"></a>
+                        </p>
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4>Publicador</h4>
+                                <p>Texto informativo...</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#"
+                                   class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="input-field">
-
                         {!!Form::password('password',['class'=>'validate'])!!}
                         <label for="password">Contraseña</label>
-
                     </div>
                     <div class="col s12 center" style="padding-top: 30px">
-
                         {!!Form::submit('Registrar',['class'=>'btn waves-effect waves-green cyan darken-3'])!!}
                     </div>
-
                     {!!Form::close()!!}
 
                 </li>
@@ -89,10 +102,10 @@
             </div>
         </div>
     </div>
-    <div class="col s12 m5 green darken-1 signup-part2">
-        <h5 class="lato white-text">¿Sabía que...?</h5>
+    <div class="col s12 m5 cyan darken-4 signup-part2">
+        <h5 class="lato white-text">¿Sabía que...</h5>
         <h6 class="light white-text half-line">Al utilizar la plataforma de búsqueda de mundocente, puedes
-            filtrar los resultados según tus preferencias.</h6>
+            filtrar los resultados según tus preferencias?</h6>
         <div class="row">
             <div class="col s12">
                 <h5 class="white-text">¿Ya se encuentra registrado?</h5>

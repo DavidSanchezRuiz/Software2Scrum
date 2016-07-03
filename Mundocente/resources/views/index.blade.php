@@ -7,17 +7,17 @@
 
     <!-- CSS -->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     {!!Html::style('css/materialize.min.css')!!}
     {!!Html::style('css/style.css')!!}
-    
+
 </head>
 <body>
 <!-- Navegador -->
 <section class="navbar-fixed">
     <nav class="grey darken-4">
         <div class="nav-wrapper container list">
-            <a href="home" class="brand-logo"><img src="images/logoNav.png" style="width: 230px; height: 60px;"></a>
+            <a href="/" class="brand-logo"><img src="images/logoNav.png" style="width: 230px; height: 60px;"></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#banner" class="waves-effect waves-teal">Inicio</a></li>
                 <li><a href="#Services" class="waves-effect waves-teal">Servicios</a></li>
@@ -25,6 +25,7 @@
                 <li><a href="#Team" class="waves-effect waves-teal">Equipo</a></li>
                 <li><a href="#Contact" class="waves-effect waves-teal">Contacto</a></li>
                 <li><a class="waves-effect waves-light btn" href="login">Iniciar Sesión</a></li>
+                <li><a class="waves-effect  waves-light orange btn" href="singup">Registro</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav grey darken-3">
                 <li><a href="#banner" class="white-text">Inicio</a></li>
@@ -33,6 +34,7 @@
                 <li><a href="#Team" class="white-text">Equipo</a></li>
                 <li><a href="#Contact" class="white-text">Contacto</a></li>
                 <li><a class="waves-effect waves-light btn" href="login">Iniciar Sesión</a></li>
+                <li><a class="waves-effect  waves-light orange btn" href="singup">Registro</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -40,111 +42,147 @@
 </section>
 
 <!-- Banner -->
-<section class="section scrollspy" id="banner">
+<section class="section banner scrollspy" id="banner">
     <div class="container">
-        <div class="slider fullscreen">
-            <ul class="slides">
-                <li>
-                    <img src="images/Fondo2.png">
-                    <div class="caption center-align cyan-text text-darken-3">
-                        <h3>Convocatorias Docentes</h3>
-                        <h5 class="light grey-text text-lighten-3">Entérese de oportunidades laborales en el ámbito universitario</h5>
-                        <a href="#Services"><button class="btn waves-effect waves-green green darken-1" type="button" name="action">Averigua Más</button></a>
-                        <a href="singup" ><button class="btn waves-effect waves-green cyan darken-3" type="button" name="action">Registrarse</button></a>
-                    </div>
-                </li>
-                <li>
-                    <img src="images/Fondo3.png">
-                    <div class="caption left-align cyan-text text-darken-3">
-                        <h3>Revistas Científicas</h3>
-                        <h5 class="light grey-text text-lighten-3">Revise fácilmente las revistas científicas de su área para aumentar tu producción académica</h5>
-                        <a href="#Services"><button class="btn waves-effect waves-green green darken-1" type="button" name="action">Averigua Más</button></a>
-                        <a href="singup" ><button class="btn waves-effect waves-green cyan darken-3" type="button" name="action">Registrarse</button></a>
-                    </div>
-                </li>
-                <li>
-                    <img src="images/Fondo1.png">
-                    <div class="caption right-align cyan-text text-darken-3">
-                        <h3>Eventos Académicos</h3>
-                        <h5 class="light grey-text text-lighten-3">Conozca eventos universitarios para presentar ponencias o capacitarse</h5>
-                        <a href="#Services"><button class="btn waves-effect waves-green green darken-1" type="button" name="action">Averigua Más</button></a>
-                        <a href="signup" ><button class="btn waves-effect waves-green cyan darken-3" type="button" name="action">Registrarse</button></a>
-                    </div>
-                </li>
-            </ul>
+        <div class="center grey-text text-darken-3  " style="margin-top: 130px; margin-bottom: 130px">
+            <h1 class="light">Mundocente</h1>
+            <p>La web dedicada a docentes investigadores</p>
+            <a class="waves-effect  waves-light orange btn" href="singup">Registro</a>
         </div>
     </div>
-    <svg id="bottomShape2" width="100%" height="50px" fill="#eeeeee" viewBox="0 0 1366 70" preserveAspectRatio="none" style="margin-bottom: -40px">
-        <path d="m 0.274329,73.862183 1366,0 L 1366,9.3475355 900.35901,39.96681 -0.00563127,0.20494098 z" stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
+    <svg id="bottomShape2" width="100%" height="50px" fill="#f5f5f5" viewBox="0 0 1366 70" preserveAspectRatio="none"
+         style="margin-bottom: -40px">
+        <path d="m 0.274329,73.862183 1366,0 L 1366,9.3475355 900.35901,39.96681 -0.00563127,0.20494098 z"
+              stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
     </svg>
 </section>
 
 <!-- Servicios -->
-<section class="section grey lighten-3 services scrollspy" id="Services">
+<section class="section services scrollspy" id="Services">
     <div class="container">
-        <h4 class="center-align grey-text text-darken-3 light sub-title" >Servicios</h4>
+        <h2 class="center-align grey-text text-darken-3 thin">Servicios</h2>
+        <p class="center container light">En Mundocente ofrecemos la información que necesita un docente universitario
+            para tener las mejores oportunidades de crecimiento laboral y personal de acuerdo con sus intereses
+            profesionales.</p>
+        <div class="line-separator"></div>
         <ul class="row">
-            <li class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center"><img src="images/Convocatoria.png" class="image-services"></h2>
-                    <h5 class="center" style="font-size: 1.5em">Convocatorias de docentes</h5>
-
-                    <p class="light center-align">Entérese a tiempo de las oportunidades laborales ofrecidas en diferentes universidades del país.</p>
+            <li class="col s12 m4 center">
+                <div class="container-image">
+                    <img src="images/Convocatoria.png" class="image-services">
                 </div>
+                <h5>Convocatorias de docentes</h5>
+                <p class="light">Entérese a tiempo de las oportunidades laborales ofrecidas en
+                    diferentes universidades del país.</p>
             </li>
-            <li class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center"><img src="images/Revistas.png" class="image-services"></h2>
-                    <h5 class="center" style="font-size: 1.5em">Revistas científicas</h5>
-
-                    <p class="light center-align">Consulte con facilidad revistas científicas publicadas por los docentes registrados en Mundocente y encuentre información especializada en sus áreas de interés. </p>
+            <li class="col s12 m4 center">
+                <div class="container-image">
+                    <img src="images/Revistas.png" class="image-services">
                 </div>
+                <h5>Revistas científicas</h5>
+                <p class="light">Consulte con facilidad revistas científicas publicadas por los
+                    docentes registrados en Mundocente y encuentre información especializada en sus áreas de
+                    interés. </p>
             </li>
-            <li class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center"><img src="images/Eventos.png" class="image-services"></h2>
-                    <h5 class="center" style="font-size: 1.5em">Eventos académicos</h5>
-
-                    <p class="light center-align">Entérese de congresos, 	seminarios, conferencias y de más eventos académicos ofrecidos por las universidades registradas en Mundocente. </p>
+            <li class="col s12 m4 center">
+                <div class="container-image">
+                    <img src="images/Eventos.png" class="image-services">
                 </div>
+                <h5>Eventos académicos</h5>
+                <p class="light">Entérese de congresos, seminarios, conferencias y de más eventos
+                    académicos ofrecidos por las universidades registradas en Mundocente. </p>
             </li>
         </ul>
     </div>
 </section>
 
 <!-- Reciente -->
-<section class="section news scrollspy" id="News">
-    <svg id="topShape1" width="100%" height="30px" fill="#eeeeee" viewBox="0 0 1366 80" preserveAspectRatio="none" style="margin-top: -1px">
-        <path d="M 0.41421356,0.19566509 1366,0.05152333 1366,64.30153 550,26.30153 -0.03033009,73.726403" stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
+
+<?php
+
+$listRecient = Mundocente\Actividad::limit(6)->get();
+
+?>
+<section class="section news scrollspy grey darken-4" id="News">
+    <svg id="topShape1" width="100%" height="30px" fill="#f5f5f5" viewBox="0 0 1366 80" preserveAspectRatio="none"
+         style="margin-top: -1px">
+        <path d="M 0.41421356,0.19566509 1366,0.05152333 1366,64.30153 550,26.30153 -0.03033009,73.726403"
+              stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
     </svg>
     <div class="container">
-        <h4 class="center-align grey-text light sub-title">Reciente</h4>
+        <h2 class="center-align grey-text text-lighten-2 thin">Reciente</h2>
+        <div class="line-separator grey lighten-2"></div>
         <ul class="row">
-                
+            @foreach($listRecient as $actividad)
+                <li class="col s12 m4">
+                    <div class="card-panel card-index">
+                        <ul class="row">
+                            <li class="col s12 m12">
+                                <span style=""> {{$actividad->title}}</span>
+                                <div class="divider"></div>
+                            </li>
+                            <li class="col s12 m12">
+                                <p class="light">{{$actividad->description}}</p>
+                            </li>
+                            <li class="col s12 m12">
+                                <div class="content-button-card">
+
+
+                                    @if($actividad->tipo=='convocatoria')
+                                        <a href="{{$actividad->enlace}}" class="btn waves-effect orange"
+                                           style="float: right;"
+                                           title="Ir a convocatoria">{{$actividad->tipo}}</a>
+                                    @endif
+
+                                    @if($actividad->tipo=='revista')
+                                        <a href="{{$actividad->enlace}}" class="btn waves-effect red"
+                                           style="float: right;"
+                                           title="Ir a revista">{{$actividad->tipo}}</a>
+                                    @endif
+
+                                    @if($actividad->tipo=='evento')
+                                        <a href="{{$actividad->enlace}}" class="btn waves-effect blue"
+                                           style="float: right;"
+                                           title="Ir a evento">{{$actividad->tipo}}</a>
+                                    @endif
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            @endforeach
         </ul>
     </div>
-    <svg id="bottomShape2" width="100%" height="50px" fill="#eeeeee" viewBox="0 0 1366 70" preserveAspectRatio="none" style="margin-bottom: -40px">
-        <path d="m 0.274329,73.862183 1366,0 L 1366,9.3475355 900.35901,39.96681 -0.00563127,0.20494098 z" stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
+    <svg id="bottomShape2" width="100%" height="50px" fill="#f5f5f5" viewBox="0 0 1366 70" preserveAspectRatio="none"
+         style="margin-bottom: -40px">
+        <path d="m 0.274329,73.862183 1366,0 L 1366,9.3475355 900.35901,39.96681 -0.00563127,0.20494098 z"
+              stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
     </svg>
 </section>
 
 <!-- Equipo -->
 <section class="section scrollspy team" id="Team">
-    <svg id="topShape3" width="100%" height="30px" fill="#eeeeee" viewBox="0 0 1366 80" preserveAspectRatio="none" style="margin-top: -1px">
-        <path d="M 0.41421356,0.19566509 1366,0.05152333 1366,64.30153 550,26.30153 -0.03033009,73.726403" stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
+    <svg id="topShape3" width="100%" height="30px" fill="#f5f5f5" viewBox="0 0 1366 80" preserveAspectRatio="none"
+         style="margin-top: -1px">
+        <path d="M 0.41421356,0.19566509 1366,0.05152333 1366,64.30153 550,26.30153 -0.03033009,73.726403"
+              stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
     </svg>
     <div class="container">
-        <h4 class="center-align grey-text text-darken-3 light sub-title">Equipo</h4>
+        <h2 class="center-align grey-text text-darken-3 thin">Equipo</h2>
+        <div class="line-separator"></div>
         <ul class="row center">
             <li class="col s12 m4">
-                <img class="responsive-img team-photo z-depth-2" src="images/foto.jpg">
+                <div class="effect">
+                    <img class="team-photo" src="/images/DiegoSosa.jpg">
+                    <figcaption>
+                        <div class="info-photo-team white-text">
+                            <span class="light">Diego Alexander Sosa Suarez</span>
+                            <p class="thin">Desarrollador frontend</p>
+                        </div>
+                    </figcaption>
+                </div>
                 <div class="info-developers">
-                    <h5 class="light">Diego Alexander Sosa Suarez</h5>
                     <div>
-                        <span class="center">Desarrollador - Frontend</span>
-                    </div>
-                    <div>
-                        <span class="center">Mail: diego.sosa0704@gmail.com</span>
+                        <span class="center">Correo: diego.sosa@uptc.edu.co</span>
                     </div>
                     <div>
                         <span class="center">Tel: 3133616690</span>
@@ -157,14 +195,66 @@
                 </div>
             </li>
             <li class="col s12 m4">
-                <img class="responsive-img team-photo z-depth-2" src="images/foto2.jpg">
+                <div class="effect">
+                    <img class="team-photo" src="/images/DavidSanchez.jpg">
+                    <figcaption>
+                        <div class="info-photo-team white-text">
+                            <span class="light">David Felipe Sanchez Torres</span>
+                            <p class="thin">Desarrollador backend</p>
+                        </div>
+                    </figcaption>
+                </div>
                 <div class="info-developers">
-                    <h5 class="light">David Felipe Sanchez Torres</h5>
                     <div>
-                        <span class="center">Desarrollador - Backend</span>
+                        <span class="center">Correo: david.sancheztorres@uptc.edu.co</span>
                     </div>
                     <div>
-                        <span class="center">Mail: examplefake1@gmail.com</span>
+                        <span class="center">Tel: 3212323654</span>
+                    </div>
+                    <div>
+                        <a href=""><img src="images/Facebook.png"></a>
+                        <a href=""><img src="images/Twitter.png"></a>
+                        <a href=""><img src="images/GooglePlus.png"></a>
+                    </div>
+                </div>
+            </li>
+            <li class="col s12 m4">
+                <div class="effect">
+                    <img class="team-photo" src="/images/EdisonSolano.jpg">
+                    <figcaption>
+                        <div class="info-photo-team white-text">
+                            <span class="light">Jose Edison Solano Correa</span>
+                            <p class="thin">Desarrollador - Gestión de proyecto</p>
+                        </div>
+                    </figcaption>
+                </div>
+                <div class="info-developers">
+                    <div>
+                        <span class="center">Correo: edison.solano@uptc.edu.co</span>
+                    </div>
+                    <div>
+                        <span class="center">Tel: 3144134406</span>
+                    </div>
+                    <div>
+                        <a href=""><img src="images/Facebook.png"></a>
+                        <a href=""><img src="images/Twitter.png"></a>
+                        <a href=""><img src="images/GooglePlus.png"></a>
+                    </div>
+                </div>
+            </li>
+            <li class="col s12 m4">
+                <div class="effect">
+                    <img class="team-photo" src="/images/IgnacioSanchez.jpg">
+                    <figcaption>
+                        <div class="info-photo-team white-text">
+                            <span class="light">David Igancio Sánchez Ruíz</span>
+                            <p class="thin">Usabilidad - Calidad</p>
+                        </div>
+                    </figcaption>
+                </div>
+                <div class="info-developers">
+                    <div>
+                        <span class="center">Correo: david.sanchezruiz@uptc.edu.co</span>
                     </div>
                     <div>
                         <span class="center">Tel: 3133616690</span>
@@ -177,65 +267,29 @@
                 </div>
             </li>
             <li class="col s12 m4">
-                <img class="responsive-img team-photo z-depth-2" src="images/foto3.jpg">
-                <div class="info-developers">
-                    <h5 class="light">Jose Edison Solano Correa</h5>
-                    <div>
-                        <span class="center">Desarrollador - Software</span>
-                    </div>
-                    <div>
-                        <span class="center">Mail: examplefake1@gmail.com</span>
-                    </div>
-                    <div>
-                        <span class="center">Tel: 3133616690</span>
-                    </div>
-                    <div>
-                        <a href=""><img src="images/Facebook.png"></a>
-                        <a href=""><img src="images/Twitter.png"></a>
-                        <a href=""><img src="images/GooglePlus.png"></a>
-                    </div>
+                <img class="responsive-img img" src="images/LogMundocente-01.png" style="width: 250px; height: 250px;">
+            </li>
+            <li class="col s12 m4">
+                <div class="effect">
+                    <img class="team-photo" src="/images/AngelaVega.png">
+                    <figcaption>
+                        <div class="info-photo-team white-text">
+                            <span class="light">Ángela Patricia Vega Vega</span>
+                            <p class="thin">Usabilidad - Calidad</p>
+                        </div>
+                    </figcaption>
                 </div>
-            </li>
-            <li class="col s12 m4">
-                <img class="responsive-img team-photo z-depth-2" src="images/foto4.jpg">
                 <div class="info-developers">
-                    <h5 class="light">David Sanchez</h5>
                     <div>
-                        <span class="center">Desarrollador</span>
-                    </div>
-                    <div>
-                        <span class="center">Mail: examplefake1@gmail.com</span>
+                        <span class="center">Correo: angela.vega@uptc.edu.co</span>
                     </div>
                     <div>
                         <span class="center">Tel: 3133616690</span>
                     </div>
                     <div>
-                        <a href=""><img src="images/Facebook.png"></a>
-                        <a href=""><img src="images/Twitter.png"></a>
-                        <a href=""><img src="images/GooglePlus.png"></a>
-                    </div>
-                </div>
-            </li>
-            <li class="col s12 m4">
-                <img src="images/LogMundocente-01.png" style="width: 250px; height: 250px;">
-            </li>
-            <li class="col s12 m4">
-                <img class="responsive-img team-photo z-depth-2" src="images/foto5.jpg">
-                <div class="info-developers">
-                    <h5 class="light">Angela Paola</h5>
-                    <div>
-                        <span class="center">Desarrollador</span>
-                    </div>
-                    <div>
-                        <span class="center">Mail: examplefake1@gmail.com</span>
-                    </div>
-                    <div>
-                        <span class="center">Tel: 3133616690</span>
-                    </div>
-                    <div>
-                        <a href=""><img src="images/Facebook.png"></a>
-                        <a href=""><img src="images/Twitter.png"></a>
-                        <a href=""><img src="images/GooglePlus.png"></a>
+                        <a href=""><img style="width: 30px" src="images/Facebook.png"></a>
+                        <a href=""><img style="width: 30px" src="images/Twitter.png"></a>
+                        <a href=""><img style="width: 30px" src="images/GooglePlus.png"></a>
                     </div>
                 </div>
             </li>
@@ -244,18 +298,21 @@
 </section>
 
 <!-- Contacto -->
-<section class="section grey lighten-3 scrollspy" id="Contact">
-    <svg id="topShape4" width="100%" height="30px" fill="#eeeeee" viewBox="0 0 1366 80" preserveAspectRatio="none" style="margin-top: -1px">
-        <path d="M 0.41421356,0.19566509 1366,0.05152333 1366,64.30153 550,26.30153 -0.03033009,73.726403" stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
+<section class="section scrollspy grey darken-4" id="Contact">
+    <svg id="topShape4" width="100%" height="30px" fill="#f5f5f5" viewBox="0 0 1366 80" preserveAspectRatio="none"
+         style="margin-top: -1px">
+        <path d="M 0.41421356,0.19566509 1366,0.05152333 1366,64.30153 550,26.30153 -0.03033009,73.726403"
+              stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
     </svg>
     <div class="container contact-container">
-        <h4 class="center-align grey-text light sub-title">Contacto</h4>
+        <h2 class="center-align grey-text text-lighten-2 thin">Contacto</h2>
+        <div class="line-separator grey lighten-2"></div>
         <ul class="row">
             <li class="col s12 m6">
                 <form class="row contact-form">
                     <div class="col s6 style-form">
                         <input id="first_name" type="text" class="validate grey-text">
-                        <label for="first_name" >Nombres</label>
+                        <label for="first_name">Nombres</label>
                     </div>
                     <div class="col s6 style-form">
                         <input id="last_name" type="text" class="validate grey-text">
@@ -280,16 +337,16 @@
             <li class="col s12 m6">
                 <div class="inf-contact">
                     <ul class="row">
-                        <li class="col s12 m12 grey-text">
+                        <li class="col s12 m12 grey-text light">
                             <span>Dirección: Tunja (Boyaca - Colombia) </span>
                         </li>
-                        <li class="col s12 m12 grey-text">
+                        <li class="col s12 m12 grey-text light">
                             <span>Telefono: +57 3133616690</span>
                         </li>
-                        <li class="col s12 m12 grey-text">
+                        <li class="col s12 m12 grey-text light">
                             <span>Email: email@fake.com </span>
                         </li>
-                        <li class="col s12 m12 grey-text">
+                        <li class="col s12 m12 grey-text light">
                             <span>Website: http://mundocente.com/</span>
                         </li>
                     </ul>
@@ -297,8 +354,10 @@
             </li>
         </ul>
     </div>
-    <svg id="bottomShape5" width="100%" height="50px" fill="#37474f" viewBox="0 0 1366 70" preserveAspectRatio="none" style="margin-bottom: -41px">
-        <path d="m 0.274329,73.862183 1366,0 L 1366,9.3475355 900.35901,39.96681 -0.00563127,0.20494098 z" stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
+    <svg id="bottomShape5" width="100%" height="50px" fill="#37474f" viewBox="0 0 1366 70" preserveAspectRatio="none"
+         style="margin-bottom: -41px">
+        <path d="m 0.274329,73.862183 1366,0 L 1366,9.3475355 900.35901,39.96681 -0.00563127,0.20494098 z"
+              stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
     </svg>
 </section>
 
@@ -308,7 +367,8 @@
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text" style="font-size: 1.7em">Mundocente</h5>
-                <p class="grey-text text-lighten-4">Encuentre información referente a revistas académicas, convocatorias para docentes y eventos académicos organizados por las universidades del país.</p>
+                <p class="grey-text text-lighten-4">Encuentre información referente a revistas académicas, convocatorias
+                    para docentes y eventos académicos organizados por las universidades del país.</p>
             </div>
         </div>
     </div>

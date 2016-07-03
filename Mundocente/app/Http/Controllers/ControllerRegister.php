@@ -48,7 +48,7 @@ class ControllerRegister extends Controller
         \Mundocente\User::create([
             'name'=> $request['nombre'],
             'email'=> $request['email'],
-            'rol'=> 'buscador',
+            'rol'=> 'publicador',
             'institute_id' => $request['universidad'],
             'password'=> bcrypt($request['password']),
             ]);
