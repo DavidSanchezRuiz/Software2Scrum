@@ -3,9 +3,14 @@
 namespace Mundocente\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use DB;
+use Mundocente\Areas;
+use Mundocente\Institute;
 
 use Mundocente\Http\Requests;
 use Mundocente\Http\Controllers\Controller;
+
 
 class ControllerHome extends Controller
 {
@@ -22,12 +27,48 @@ class ControllerHome extends Controller
 
     public function inicio()
     {
-        return view('index');
+
+         if (Auth::check()) {
+            $areas = Areas::lists('name_a','id');
+        $institutes = Institute::lists('name_i','id');
+
+
+
+        $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.area_id','institutes.id','actividads.title','actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->orderby('actividads.id', 'desc')
+            ->paginate(20);
+
+        return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Temas']);
+        }else{
+            return view('index');  
+        }
+        
+        
     }
 
      public function ingresar()
     {
-        return view('login');
+         if (Auth::check()) {
+            $areas = Areas::lists('name_a','id');
+        $institutes = Institute::lists('name_i','id');
+
+
+
+        $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.area_id','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->orderby('actividads.id', 'desc')
+            ->paginate(20);
+
+        return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Temas']);
+        }else{
+            return view('login');    
+        }
+        
     }
     /**
      * Show the form for creating a new resource.

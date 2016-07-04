@@ -13,5 +13,5 @@ class Institute extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name_i','lugar_id'];
 }

@@ -26,3 +26,9 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('.slider').slider({full_width: true});
 });
+
+$(document).ready(function() {
+    $(".js-example-basic-multiple").select2({
+        placeholder: "Selecciona los temas de preferencia"
+    });
+});

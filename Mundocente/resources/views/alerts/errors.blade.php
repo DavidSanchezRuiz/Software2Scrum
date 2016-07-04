@@ -1,13 +1,10 @@
 @if(count($errors) > 0)
- <div class="row">
+     <ul class="notification-title" style="color: red">
 
-  	@foreach($errors->all() as $error)
-  	<div class="col s12  red lighten-3">{!!$error!!}</div>
-  	
+    @foreach($errors->all() as $error)
+  	<li>* {!!$error!!}</li>
   	@endforeach
-
-      
-    </div>
+	</ul>
 
 
 @endif

@@ -172,7 +172,7 @@ $listRecient = Mundocente\Actividad::limit(6)->get();
         <ul class="row center">
             <li class="col s12 m4">
                 <div class="effect">
-                    <img class="team-photo" src="/images/DiegoSosa.jpg">
+                    <img class="team-photo" src="images/DiegoSosa.jpg">
                     <figcaption>
                         <div class="info-photo-team white-text">
                             <span class="light">Diego Alexander Sosa Suarez</span>
@@ -196,7 +196,7 @@ $listRecient = Mundocente\Actividad::limit(6)->get();
             </li>
             <li class="col s12 m4">
                 <div class="effect">
-                    <img class="team-photo" src="/images/DavidSanchez.jpg">
+                    <img class="team-photo" src="images/DavidSanchez.jpg">
                     <figcaption>
                         <div class="info-photo-team white-text">
                             <span class="light">David Felipe Sanchez Torres</span>
@@ -220,7 +220,7 @@ $listRecient = Mundocente\Actividad::limit(6)->get();
             </li>
             <li class="col s12 m4">
                 <div class="effect">
-                    <img class="team-photo" src="/images/EdisonSolano.jpg">
+                    <img class="team-photo" src="images/EdisonSolano.jpg">
                     <figcaption>
                         <div class="info-photo-team white-text">
                             <span class="light">Jose Edison Solano Correa</span>
@@ -244,7 +244,7 @@ $listRecient = Mundocente\Actividad::limit(6)->get();
             </li>
             <li class="col s12 m4">
                 <div class="effect">
-                    <img class="team-photo" src="/images/IgnacioSanchez.jpg">
+                    <img class="team-photo" src="images/IgnacioSanchez.jpg">
                     <figcaption>
                         <div class="info-photo-team white-text">
                             <span class="light">David Igancio Sánchez Ruíz</span>
@@ -271,7 +271,7 @@ $listRecient = Mundocente\Actividad::limit(6)->get();
             </li>
             <li class="col s12 m4">
                 <div class="effect">
-                    <img class="team-photo" src="/images/AngelaVega.png">
+                    <img class="team-photo" src="images/AngelaVega.png">
                     <figcaption>
                         <div class="info-photo-team white-text">
                             <span class="light">Ángela Patricia Vega Vega</span>

@@ -7,10 +7,11 @@
     <div class="container">
         <div class="row">
         @include('alerts.changepass')
-            @include('formularios.form_search_especific')
+           
+           @include('formularios.form_search_especific')
             
 
-            @include('layout.result')
+            @include('layout.result_especifi')
 
 
 

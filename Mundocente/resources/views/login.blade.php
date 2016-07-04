@@ -69,17 +69,16 @@
     </div>
     <div class="col s12 m5 teal darken-3 login-part2">
         <h5 class="lato white-text">¿Sabía que...?</h5>
-        <h6 class="light white-text half-line">Al realizar búsquedas en la plataforma de búsqueda de mundocente, puedes
+        <h6 class="light white-text half-line">Al realizar búsquedas en la plataforma de Mundocente, puedes
             filtrar los resultados según tus preferencias.</h6>
         <div class="row">
             <div class="col s12">
-                <h5 class="white-text">¿No está registrado?</h5>
-                <a href="singup" class="btn waves-effect waves-light orange">Registrarse</a>
+                <h5 class="white-text">¿No estás registrado?</h5>
+                <a href="singup" class="btn waves-effect waves-light orange">Regístrate</a>
             </div>
         </div>
-        <h6 class="light white-text half-line">Al crear su cuenta y usar mundocente, usted está de acuerdo con
-            nuestros Términos de Servicio y Política de Privacidad. Si no está de acuerdo, no se puede utilizar
-            mundocente.</h6>
+        <h6 class="light white-text half-line">Al crear tu cuenta y usar Mundocente, estarás de acuerdo con
+            nuestros Términos de Servicio y Política de Privacidad.</h6>
     </div>
 
 </div>

@@ -2,7 +2,7 @@
 function addSelectAr(option){
 	
 	var dato = option.value;
-	var route = "http://localhost:8000/preferencias";
+	var route = "/preferencias";
 	var token = $("#token").val();
 
 	$.ajax({
@@ -13,3 +13,4 @@ function addSelectAr(option){
 		data:{preferencias:dato}
 	});
 }
+

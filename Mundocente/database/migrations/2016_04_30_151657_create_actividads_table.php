@@ -16,11 +16,16 @@ class CreateActividadsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->enum('tipo', ['convocatoria', 'revista', 'evento']);
+            $table->string('cargo');
             $table->string('enlace');
             $table->string('description');
             $table->string('fecha_inicio');
             $table->string('fecha_fin');
             $table->timestamps();
+            $table->integer('users_id')->unsigned();
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->integer('area_id')->unsigned();
+            $table->foreign('area_id')->references('id')->on('areas');
         });
     }
 

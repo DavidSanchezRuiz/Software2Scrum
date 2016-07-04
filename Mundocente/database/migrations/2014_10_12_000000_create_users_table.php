@@ -17,9 +17,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->enum('rol', ['publicador', 'buscador']);
+            $table->enum('rol', ['publicador', 'buscador','pendiente','administrador']);
             $table->integer('institute_id')->unsigned();
             $table->foreign('institute_id')->references('id')->on('institutes');
+            $table->integer('lugar_id')->unsigned();
+            $table->foreign('lugar_id')->references('id')->on('lugars');
             $table->string('password', 60);
             $table->rememberToken();
             $table->timestamps();
