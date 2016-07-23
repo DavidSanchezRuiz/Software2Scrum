@@ -24,8 +24,7 @@ class CreateActividadsTable extends Migration
             $table->timestamps();
             $table->integer('users_id')->unsigned();
             $table->foreign('users_id')->references('id')->on('users');
-            $table->integer('area_id')->unsigned();
-            $table->foreign('area_id')->references('id')->on('areas');
+            
         });
     }
 

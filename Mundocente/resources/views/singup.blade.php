@@ -84,10 +84,21 @@
                         </div>
                     </div>
 
+                    
+
+                    <div class="input-field">
+                        {!!Form::password('password',['class'=>'validate'])!!}
+                        <label for="password">Contraseña</label>
+                    </div>
+
+                    <div class="input-field">
+                        {!!Form::password('confirm-password',['class'=>'validate'])!!}
+                        <label for="confirm-password">Confirmar Contraseña</label>
+                    </div>
                     <div>
                         <p>
                             <input type="checkbox"  id="test6" name="permiso_notifi_signup" value="si" >
-                            <label for="test6" class="black-text">¿Le gustaria recibir notificaciones de mundocente a su correo?</label>
+                            <label for="test6" class="black-text">¿Le gustaría recibir notificaciones de Mundocente a en correo?</label>
                             <a class="waves-effect waves-light modal-trigger tooltipped" data-tooltip="Más información"
                                href="#modal2"><img style="height: 25px; width: 25px" src="/images/info.png"></a>
                         </p>
@@ -101,16 +112,6 @@
                                    class="modal-action modal-close waves-effect waves-green btn-flat">Entendido</a>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="input-field">
-                        {!!Form::password('password',['class'=>'validate'])!!}
-                        <label for="password">Contraseña</label>
-                    </div>
-
-                    <div class="input-field">
-                        {!!Form::password('confirm-password',['class'=>'validate'])!!}
-                        <label for="confirm-password">Confirmar Contraseña</label>
                     </div>
 
                     <div class="col s12 center" style="padding-top: 30px">
