@@ -1,6 +1,5 @@
 <?php
-   
-$areas = Mundocente\Areas::lists('name_a','id');
+    $areas = Mundocente\Areas::all();
     $institutes = Mundocente\Institute::where('id',Auth::user()->institute_id)->get();
 ?>
 
@@ -9,13 +8,9 @@ $areas = Mundocente\Areas::lists('name_a','id');
     <div class="modal-content">
         <div class="container">
             <h4 class="light">Publicar Convocatoria</h4>
-            
-            
 
              <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
                 <input type="hidden" id="id">
-
-
 
                 <div class="col s12 m12">
                     <h6>Por: 
@@ -28,10 +23,18 @@ $areas = Mundocente\Areas::lists('name_a','id');
                 </div>
                 <br>
 
+                <div style="padding-top: 10px">
+                    <label class="left grey-text text-darken-3">Seleccione el área de preferencia</label>
 
-                <div class="col s12 m12">
-                    <label>Área:</label>
-                   {!!Form::select('search_area', $areas,null,['class'=>'browser-default', 'id'=>'nueva_convocatoria'])!!}
+                    <!--area para agregar -->
+
+                    <select class="js-example-basic-multiple" name="search_area[]"  multiple="multiple"  id="nueva_convocatoria" title="Seleccionar tema de preferencia">
+
+                        @foreach($areas as $area)
+                            <option value="{{$area->id}}">{{$area->name_a}}</option>
+                        @endforeach
+
+                    </select>
                 </div>
 
                 <div class="input-field col s12 m12">
@@ -53,9 +56,6 @@ $areas = Mundocente\Areas::lists('name_a','id');
                   </ul>
                 </div>
 
-
-                
-
                 <div class="col s12 m12" style="background: red">
                     <div style="float: left;">
                         <label>Fecha Inicio:</label>
@@ -68,12 +68,6 @@ $areas = Mundocente\Areas::lists('name_a','id');
                     
                 </div>
 
-
-
-
-
-
-
         </div>
 
 
@@ -85,93 +79,95 @@ $areas = Mundocente\Areas::lists('name_a','id');
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- Modal Revista -->
 <div id="revista" class="modal">
     <div class="modal-content">
         <div class="container">
             <h4 class="light">Publicar Revista</h4>
-              <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-                <input type="hidden" id="id">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+            <input type="hidden" id="id">
 
 
+            <div class="col s12 m12">
+                <h6>Por:
 
-                <div class="col s12 m12">
-                    <h6>Por: 
-                    
-                        @foreach($institutes as $institute)
-                        <span style="color: #4d4d4d;" >{{$institute->name_i}}</span>
-                        @endforeach
-                        
-                    </h6>
-                </div>
-                <br>
+                    @foreach($institutes as $institute)
+                        <span style="color: #4d4d4d;">{{$institute->name_i}}</span>
+                    @endforeach
 
+                </h6>
+            </div>
+            <br>
 
-                <div class="col s12 m12">
-                    <label>Área:</label>
-                   {!!Form::select('r_search_area', $areas,null,['class'=>'browser-default', 'id'=>'nueva_revista'])!!}
-                </div>
+            <div style="padding-top: 10px">
+                <label class="left grey-text text-darken-3">Seleccione el área de preferencia</label>
 
-                <div class="input-field col s12 m12">
-                    <input id="title_revista_new" type="text" class="validate">
-                    <label class="active" for="title_revista_new">Título</label>
-                </div>
+                <!--area para agregar -->
 
-                <div class="input-field col s12 m12">
-                    <input id="r_enlace_new" type="text" class="validate">
-                    <label class="active" for="r_enlace_new">Enlace</label>
-                </div>
+                <select class="js-example-basic-multiple" name="r_search_area[]"  multiple="multiple"  id="nueva_revista" title="Seleccionar tema de preferencia">
 
-                <div class="input-field col s12 m12">
-                     <ul class="collapsible" data-collapsible="accordion">
+                    @foreach($areas as $area)
+                        <option value="{{$area->id}}">{{$area->name_a}}</option>
+                    @endforeach
+
+                </select>
+            </div>
+
+            <div class="input-field col s12 m12">
+                <input id="title_revista_new" type="text" class="validate">
+                <label class="active" for="title_revista_new">Título</label>
+            </div>
+
+            <div class="input-field col s12 m12">
+                <input id="r_enlace_new" type="text" class="validate">
+                <label class="active" for="r_enlace_new">Enlace</label>
+            </div>
+
+            <div class="input-field col s12 m12">
+                <ul class="collapsible" data-collapsible="accordion">
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">mode_edit</i>Añadir descripción</div>
-                      <div class="collapsible-body"><textarea id="r_description_new" style="border:none;outline: none;max-width: 100%;" placeholder="Ingresa la descripción de la convocatoria"></textarea></div>
+                        <div class="collapsible-header"><i class="material-icons">mode_edit</i>Añadir descripción</div>
+                        <div class="collapsible-body"><textarea id="r_description_new"
+                                                                style="border:none;outline: none;max-width: 100%;"
+                                                                placeholder="Ingresa la descripción de la convocatoria"></textarea>
+                        </div>
                     </li>
-                  </ul>
+                </ul>
+            </div>
+
+            <!-- Switch -->
+            <div class="switch">
+                <p>
+                    <label style="">Tipo de revista:</label>
+                </p>
+                <p>
+                    <label>
+                        No Indexada
+                        <input type="checkbox">
+                        <span class="lever"></span>
+                        Indexada
+                    </label>
+                </p>
+            </div>
+            <label style="">Seleccionar categoría</label>
+            <select class="browser-default">
+                <option value="1">A1</option>
+                <option value="2">A2</option>
+                <option value="3">B</option>
+                <option value="4">C</option>
+            </select>
+            <div class="col s12 m12">
+                <div style="">
+                    <label>Fecha:</label>
+                    <input type="date" id="r_date_inicio_new" class="datepicker">
                 </div>
-
-
-                
-
-                <div class="col s12 m12" style="background: red">
-                    <div style="float: left;">
-                        <label>Fecha Indexada:</label>
-                        <input type="date" id="r_date_inicio_new" class="datepicker" >
-                    </div>
-                    <div style="float: right;">
-                        <label>Límite:</label>
-                        <input type="date" id="r_date_fin_new" class="datepicker">
-                    </div>
-                    
-                </div>
+            </div>
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-action btn modal-close waves-effect red btn-flat " style="color: #fff;margin-left: 5px;">Cerrar</a>
-        <a href="#!" class="modal-action btn waves-effect green btn-flat" style="color: #fff" onclick="add_revista()">Publicar</a>
+        <a href="#!" class="modal-action btn modal-close waves-effect red btn-flat "
+           style="color: #fff;margin-left: 5px;">Cerrar</a>
+        <a href="#!" class="modal-action btn waves-effect green btn-flat white-text" onclick="add_revista()">Publicar</a>
     </div>
 </div>
 
@@ -222,10 +218,18 @@ $areas = Mundocente\Areas::lists('name_a','id');
                 </div>
                 <br>
 
+                <div style="padding-top: 10px">
+                    <label class="left grey-text text-darken-3">Seleccione el área de preferencia</label>
 
-                <div class="col s12 m12">
-                    <label>Área:</label>
-                   {!!Form::select('e_search_area', $areas,null,['class'=>'browser-default', 'id'=>'nueva_evento'])!!}
+                    <!--area para agregar -->
+
+                    <select class="js-example-basic-multiple" name="e_search_area[]"  multiple="multiple"  id="nueva_evento" title="Seleccionar tema de preferencia">
+
+                        @foreach($areas as $area)
+                            <option value="{{$area->id}}">{{$area->name_a}}</option>
+                        @endforeach
+
+                    </select>
                 </div>
 
                 <div class="input-field col s12 m12">

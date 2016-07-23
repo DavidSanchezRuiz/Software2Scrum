@@ -92,7 +92,7 @@ function add_revista() {
 						$('#r_date_inicio_new').val("");
 						$('#r_date_fin_new').val("");
 
-						$('#id_title_new_hidden'+countCreated).html("Convocatoria de "+title_new);
+						$('#id_title_new_hidden'+countCreated).html(title_new);
 						$('#id_description_new_hidden'+countCreated).html(description_new);
 						$('#id_enlace_new_hidden'+countCreated).attr({href: enlace_new});
 
@@ -155,7 +155,7 @@ function add_evento() {
 						$('#e_date_inicio_new').val("");
 						$('#e_date_fin_new').val("");
 
-						$('#id_title_new_hidden'+countCreated).html("Convocatoria de "+title_new);
+						$('#id_title_new_hidden'+countCreated).html(title_new);
 						$('#id_description_new_hidden'+countCreated).html(description_new);
 						$('#id_enlace_new_hidden'+countCreated).attr({href: enlace_new});
 
@@ -182,5 +182,18 @@ function add_evento() {
 	}
 
 
+	
+}
+
+
+
+
+function nobackbutton(){
+	
+   window.location.hash="no-back-button";
+	
+   window.location.hash="Again-No-back-button" //chrome
+	
+   window.onhashchange=function(){window.location.hash="es";}
 	
 }

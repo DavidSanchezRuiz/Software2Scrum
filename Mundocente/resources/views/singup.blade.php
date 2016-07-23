@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link rel="icon" type="../images/LogMundocente-01.png" href="../images/LogMundocente-01.png" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Registro</title>
@@ -12,7 +13,7 @@
 
     {!!Html::script('js/select2.min.js')!!} 
 </head>
-<body style="background-color: white">
+<body style="background-color: white" onload="nobackbutton();">
 
 <div class="row signup-main">
     <div class="col s12 m7 white signup-part1">
@@ -25,21 +26,10 @@
 
                 </li>
                 <li class="col s12 m12">
-                    <h4 class="light">Regístrate</h4>
+                    <h4 class="light">Registro</h4>
                 </li>
 
                 <li class="col s12 m12">
-                    <div class="center row">
-                        <div class="col s12 m12">
-                            <a href="#" class="tooltipped" data-position="bottom" data-delay="50"
-                               data-tooltip="Facebook"><img src="images/facebook-login.png" alt=""></a>
-                            <a href="#" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Google"><img
-                                        src="images/google-plus.png" alt=""></a>
-                        </div>
-                        <div class="col s12 m12 light" style="padding-top: 15px;">
-                            <span style="font-size: 1.5em">-----------------  o  -----------------</span>
-                        </div>
-                    </div>
 
                     {!!Form::open(['route'=>'singup.store', 'method'=>'POST'])!!}
                     @include('alerts.errors')
@@ -93,12 +83,38 @@
                             </div>
                         </div>
                     </div>
+
+                    <div>
+                        <p>
+                            <input type="checkbox"  id="test6" name="permiso_notifi_signup" value="si" >
+                            <label for="test6" class="black-text">¿Le gustaria recibir notificaciones de mundocente a su correo?</label>
+                            <a class="waves-effect waves-light modal-trigger tooltipped" data-tooltip="Más información"
+                               href="#modal2"><img style="height: 25px; width: 25px" src="/images/info.png"></a>
+                        </p>
+                        <div id="modal2" class="modal">
+                            <div class="modal-content">
+                                <h4>Notificaciones de Mundocente</h4>
+                                <p>Al seleccionar esta opción dará permiso a la aplicación para enviar a su correo notificaciones acerca de sus temas de interés</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#"
+                                   class="modal-action modal-close waves-effect waves-green btn-flat">Entendido</a>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="input-field">
                         {!!Form::password('password',['class'=>'validate'])!!}
                         <label for="password">Contraseña</label>
                     </div>
+
+                    <div class="input-field">
+                        {!!Form::password('confirm-password',['class'=>'validate'])!!}
+                        <label for="confirm-password">Confirmar Contraseña</label>
+                    </div>
+
                     <div class="col s12 center" style="padding-top: 30px">
-                        {!!Form::submit('Registrar',['class'=>'btn waves-effect waves-green cyan darken-3'])!!}
+                        {!!Form::submit('Registrar',['class'=>'btn waves-green cyan darken-3'])!!}
                     </div>
                     {!!Form::close()!!}
 

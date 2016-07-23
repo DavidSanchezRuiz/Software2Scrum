@@ -10,7 +10,7 @@
     {!!Html::style('css/materialize.min.css')!!}
     {!!Html::style('css/style.css')!!}
 </head>
-<body>
+<body onload="nobackbutton();">
 
 <!-- Navegador -->
 <section class="navbar navbar-fixed">
@@ -199,6 +199,7 @@
 {!!Html::script('js/jquery.js')!!}
 {!!Html::script('js/materialize.min.js')!!}
 {!!Html::script('js/init.js')!!}
+{!!Html::script('js/manager_user_admin.js')!!}
 {!!Html::script('js/manejaPermisos.js')!!}
 {!!Html::script('js/add_activity.js')!!}
 {!!Html::script('js/edit_publication.js')!!}

@@ -1,8 +1,9 @@
 //Activar usuario para quesea publicador
 function activarUs(id_user) {
 	var user_id = id_user;
+	var email = $("#email_hidden"+id_user).val();
 	
-
+	console.log(email);
 			var route ="activar-user";
 				var token = $("#token"+id_user).val();
 
@@ -11,7 +12,7 @@ function activarUs(id_user) {
 					headers:{'X-CSRF-TOKEN':token},
 					type:'POST',
 					dataType:'json',
-					data:{id_u:user_id},
+					data:{id_u:user_id, email_u:email},
 					success:function(info){
 
 						$("#activar"+user_id).css({display: 'none'});
@@ -33,7 +34,7 @@ function activarUs(id_user) {
 //Activar usuario para quesea publicador
 function desactivarUs(id_user) {
 	var user_id = id_user;
-	
+	var email = $("#email_hidden"+id_user).val();
 
 			var route ="desactivar-user";
 				var token = $("#token"+id_user).val();
@@ -43,7 +44,7 @@ function desactivarUs(id_user) {
 					headers:{'X-CSRF-TOKEN':token},
 					type:'POST',
 					dataType:'json',
-					data:{id_u:user_id},
+					data:{id_u:user_id, email_u:email},
 					success:function(info){
 
 						$("#desactivar"+user_id).css({display: 'none'});

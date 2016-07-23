@@ -1,5 +1,5 @@
 <div class="col s12 m8" style="float: right;">
-                <h4 style="padding-top: 8px; margin: 0 auto; font-size: 1.95em" class="light">Resultados: {{$universidad_search}}</h4>
+                <h4 style="padding-top: 8px; margin: 0 auto; font-size: 1.95em" class="light">{{$tipo_activity}} las publicaciones</h4>
                 <ul class="row" >
 
 
@@ -48,7 +48,7 @@
                         </li>';
     }
     
-$countResult=0;
+
 
 ?>
 
@@ -56,17 +56,16 @@ $countResult=0;
 
 
                     @foreach($actividads as $actividad)
-                    <?php
-                    $countResult++;
-                    ?>
-                       @include('layout.cuadroResultado')
 
+                    
+                        @include('layout.cuadroResultado')
+                    
+
+                       
                     @endforeach
 
-                    @if($countResult==0)
-                        <h3>No hay resultados</h3>
-                    @endif
                     
+
                     <li class="col s12 m12">
                         <div class="center">
                             {!!$actividads->render()!!}

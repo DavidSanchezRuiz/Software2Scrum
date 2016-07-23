@@ -34,6 +34,21 @@ class ControllerSearch extends Controller
         //
     }
 
+
+    public function mostrarTodo(){
+       
+        
+        $areas = Areas::lists('name_a','id');
+        $institutes = Institute::lists('name_i','id');
+        $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.area_id','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->orderby('actividads.id', 'desc')
+            ->paginate(41);
+        return view('search_all',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Todas']);
+    }
+
     public function mostrarConvocatorias(){
        
         
@@ -45,7 +60,7 @@ class ControllerSearch extends Controller
             ->select('actividads.area_id','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->where('actividads.tipo','convocatoria')
             ->orderby('actividads.id', 'desc')
-            ->paginate(20);
+            ->paginate(41);
         return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Convocatorias']);
     }
 
@@ -63,7 +78,7 @@ class ControllerSearch extends Controller
             ->select('actividads.area_id','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->where('actividads.tipo','revista')
             ->orderby('actividads.id', 'desc')
-            ->paginate(20);
+            ->paginate(41);
         return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Revistas']);
     }
 
@@ -81,7 +96,7 @@ class ControllerSearch extends Controller
                 ->select('actividads.area_id','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
                 ->where('actividads.tipo','evento')
                 ->orderby('actividads.id', 'desc')
-                ->paginate(20);
+                ->paginate(41);
                 return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Eventos']);
     }
 
@@ -98,7 +113,7 @@ class ControllerSearch extends Controller
             ->select('actividads.area_id','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->where('institutes.name_i',$id_universidad)
             ->orderby('actividads.id', 'desc')
-            ->paginate(20);
+            ->paginate(41);
         return view('search_univer',compact('areas','institutes', 'actividads'), ['universidad_search'=>$id_universidad]);
     }
     
@@ -134,7 +149,7 @@ class ControllerSearch extends Controller
             ->select('institutes.id','actividads.area_id','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->where('title', 'like', '%'.$request['palabra-clave'].'%')
             ->orderby('actividads.id', 'desc')
-            ->paginate(20);
+            ->paginate(41);
 
                 return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>$request['palabra-clave']]);
     }

@@ -45,10 +45,16 @@ class ControllerPreferences extends Controller
     public function store(Request $request)
     {
 
+        $count = Preferencias::where('users_email',Auth::user()->email)
+                                ->where('areas_id',$request['select_option'])->count();
+
+        if($count==0){
             Preferencias::create([
                 'users_email'=>Auth::user()->email,
                 'areas_id'=>$request['select_option'],
                 ]);
+        }
+            
             return Redirect::to('settings');
 
     }

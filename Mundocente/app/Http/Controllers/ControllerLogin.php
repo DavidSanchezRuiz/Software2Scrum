@@ -42,11 +42,11 @@ class ControllerLogin extends Controller
         $actividads = DB::table('users')
             ->join('actividads', 'users.id', '=', 'actividads.users_id')
             ->join('institutes', 'users.institute_id', '=', 'institutes.id')
-            ->select('actividads.area_id','institutes.id','actividads.title','actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->select('actividads.area_id','institutes.id','actividads.title', 'actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->orderby('actividads.id', 'desc')
-            ->paginate(20);
+            ->paginate(41);
 
-        return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Temas']);   
+        return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Temas']);
     }
     public function ingreso(){
         
@@ -98,12 +98,24 @@ class ControllerLogin extends Controller
             ->join('institutes', 'users.institute_id', '=', 'institutes.id')
             ->select('institutes.id','actividads.area_id','actividads.title','actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->orderby('actividads.id', 'desc')
-            ->paginate(20);
+            ->paginate(41);
 
         return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Temas']);
         }
 
         
+    }
+
+
+    public function obtenerdatosusuarios($id_u){
+        $users = DB::table('users')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('users.id','users.name', 'users.rol', 'users.email','users.last_name', 'institutes.name_i')
+            ->where('users.id',$id_u)
+            ->get();
+        return response()->json(
+            $users
+        );
     }
 
     public function activarUsuario(Request $request){
@@ -112,7 +124,25 @@ class ControllerLogin extends Controller
              DB::table('users')
             ->where('id',$request['id_u'])
             ->update(['rol' => 'publicador']);
-            return 0;    
+
+            if (isset($_REQUEST['email_u']))  {
+                //Email information
+                $admin_email = $request['email_u'];
+                $name = ('Activación de servicio');
+                $email = 'Mundocente';
+                $message = 'Ha sido aceptado como publicador en Mundocente, gracias por utilizar nuestra plataforma.';
+
+                //send email
+                if (@mail($admin_email, $name, $message, "From: " . $email)) {
+                    return 1;  
+                }
+                else {
+                    return 0;  
+                }
+            }
+
+
+              
         }
     }
 
@@ -122,7 +152,21 @@ class ControllerLogin extends Controller
              DB::table('users')
             ->where('id',$request['id_u'])
             ->update(['rol' => 'buscador']);
-            return 0;    
+             if (isset($_REQUEST['email_u']))  {
+                //Email information
+                $admin_email = $request['email_u'];
+                $name = ('Desactivación de servicio');
+                $email = 'Mundocente';
+                $message = 'Ha sido deshabilitado como publicador en Mundocente por mal uso, gracias por utilizar nuestra plataforma.';
+
+                //send email
+                if (@mail($admin_email, $name, $message, "From: " . $email)) {
+                    return 1;  
+                }
+                else {
+                    return 0;  
+                }
+            }
         }
     }
 
