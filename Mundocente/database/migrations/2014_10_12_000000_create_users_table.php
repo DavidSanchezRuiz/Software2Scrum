@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->enum('rol', ['publicador', 'buscador','pendiente','administrador']);
             $table->enum('email_active', ['si', 'no']);
+            $table->string('cargo');
             $table->integer('institute_id')->unsigned();
             $table->foreign('institute_id')->references('id')->on('institutes');
             $table->integer('lugar_id')->unsigned();

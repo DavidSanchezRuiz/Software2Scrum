@@ -13,5 +13,5 @@ class Actividad extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'tipo', 'cargo','enlace','description', 'fecha_inicio', 'fecha_fin', 'users_id'];
+    protected $fillable = ['title', 'tipo', 'cargo','enlace','description', 'indexada', 'categoria', 'fecha_inicio', 'fecha_fin', 'users_id', 'lugar_id'];
 }

@@ -22,6 +22,18 @@
                     </a>
 
                 </li>
+                <br>
+                <br>
+                <br>
+
+                <br>
+                <br>
+
+                <br>
+                <br>
+                
+                <br>
+                <br>
                 <li class="col s12 m12">
                     <h4 class="light">Iniciar sesión</h4>
                 </li>
@@ -41,10 +53,6 @@
                         <label for="password">Contraseña</label>
                     </div>
 
-                    <p>
-                        <input type="checkbox"  id="save-password" name="permiso_notifi_signup" value="si" >
-                        <label for="save-password" class="black-text">¿Desea guardar su contraseña?</label>
-                    </p>
 
                     <div class="col s12 center" style="padding-top: 30px">
 
@@ -80,7 +88,7 @@
 
 </div>
 <!--Scripts -->
-{!!Html::script('https://code.jquery.com/jquery-2.1.1.min.js')!!}
+{!!Html::script('js/jquery.js')!!}
 {!!Html::script('js/materialize.min.js')!!}
 {!!Html::script('js/init.js')!!}
 </body>

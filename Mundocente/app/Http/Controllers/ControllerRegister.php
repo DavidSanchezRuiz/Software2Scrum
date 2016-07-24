@@ -37,7 +37,7 @@ class ControllerRegister extends Controller
          $actividads = DB::table('users')
             ->join('actividads', 'users.id', '=', 'actividads.users_id')
             ->join('institutes', 'users.institute_id', '=', 'institutes.id')
-            ->select('actividads.area_id','institutes.id','actividads.title','actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->select('institutes.id','actividads.title','actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->orderby('actividads.id', 'desc')
             ->paginate(20);
 
@@ -68,47 +68,115 @@ class ControllerRegister extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateUserRequest $request)
-    {
+    public function store(CreateUserRequest $request){
 
-        if($request['permiso_signup']=='si'){
-           User::create([
-            'name'=> $request['nombre'],
-            'email'=>  $request['email'],
-            'rol'=> 'pendiente',
-            'institute_id' => $request['universidad'],
-            'password'=> bcrypt($request['password']),
-            ]); 
-        }else{
-            User::create([
-            'name'=> $request['nombre'],
-            'email'=> $request['email'],
-            'rol'=> 'buscador',
-            'institute_id' => $request['universidad'],
-            'password'=> bcrypt($request['password']),
-            ]);
-        }
 
-        
+       if($request['permiso_signup']=='si'){
 
-        $areasList = $request['areas'];
+                if($request['permiso_notifi_signup']=='si'){
+                     User::create([
+                    'name'=> $request['nombre'],
+                    'email'=>  $request['email'],
+                    'rol'=> 'pendiente',
+                    'email_active'=> 'si',
+                    'cargo'=>  $request['cargo_docente'],
+                    'institute_id' => $request['universidad'],
+                    'password'=> bcrypt($request['password']),
+                    ]);
+                      //Email information
+                        $admin_email = $request['email'];
+                        $name = ('Recibirás correos de interés');
+                        $email = 'Mundocente';
+                        $message = 'Has aceptado recibir notificaciones en este correo acerca de nuevas publicaciones de tu interés, desde la plataforma Mndocente';
 
-        if($areasList!=null){
-              foreach ($areasList as $area) {
-                     Preferencias::create([
-                    'users_email'=> $request['email'],
-                    'areas_id'=> $area,
+                        //send email
+                        @mail($admin_email, $name, $message, "From: " . $email);
+                        
+                       
+                }else{
+                      User::create([
+                    'name'=> $request['nombre'],
+                    'email'=>  $request['email'],
+                    'rol'=> 'pendiente',
+                    'email_active'=> 'no',
+                    'cargo'=>  $request['cargo_docente'],
+                    'institute_id' => $request['universidad'],
+                    'password'=> bcrypt($request['password']),
                     ]);
                 }
+           
+        }else{
+                if($request['permiso_notifi_signup']=='si'){
+                    User::create([
+                    'name'=> $request['nombre'],
+                    'email'=> $request['email'],
+                    'rol'=> 'buscador',
+                    'email_active'=> 'si',
+                    'cargo'=>  $request['cargo_docente'],
+                    'institute_id' => $request['universidad'],
+                    'password'=> bcrypt($request['password']),
+                    ]);
+                    //Email information
+                    $admin_email = $request['email'];
+                    $name = ('Recibirás correos de interés');
+                    $email = 'Mundocente';
+                    $message = 'Has aceptado recibir notificaciones en este correo acerca de nuevas publicaciones de tu interés, desde la plataforma Mndocente';
+
+                    //send email
+                    @mail($admin_email, $name, $message, "From: " . $email);
+                }else{
+                     User::create([
+                    'name'=> $request['nombre'],
+                    'email'=> $request['email'],
+                    'rol'=> 'buscador',
+                    'email_active'=> 'no',
+                    'cargo'=>  $request['cargo_docente'],
+                    'institute_id' => $request['universidad'],
+                    'password'=> bcrypt($request['password']),
+                    ]);
+                }
+           
         }
-              
-       if(Auth::attempt(['email'=>$request['email'], 'password'=>$request['password']])){
-            Session::flash('message-change-data', 'Bienvenido a Mundocente');
-            return Redirect::to('home');
-         }
+
+         $areasList = $request['areas'];
+
+                        if($areasList!=null){
+                              foreach ($areasList as $area) {
+                                     Preferencias::create([
+                                    'users_email'=> $request['email'],
+                                    'areas_id'=> $area,
+                                    ]);
+                                }
+                        }
+
+          //Email information
+                $admin_email = $request['email'];
+                $name = ('Bienvenido');
+                $email = 'Mundocente';
+                $message = 'Te damos la bienvenida a nuestra plataforma de Mundcente.';
+
+                //send email
+                @mail($admin_email, $name, $message, "From: " . $email);
+                    
+                              
+                       if(Auth::attempt(['email'=>$request['email'], 'password'=>$request['password']])){
+                            Session::flash('message-change-data', 'Bienvenido a Mundocente');
+                            return Redirect::to('home');
+                        }
+
+
+                              
+                       
          
         
     }
+
+
+
+
+
+
+
 
     public function permisoPublicador(Request  $request){
         if($request->ajax()){

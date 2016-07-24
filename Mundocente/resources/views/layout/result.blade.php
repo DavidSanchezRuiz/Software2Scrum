@@ -60,8 +60,12 @@ $countResult=0;
 
                     <?php
                         $listPrefer=0;
-                        $listPrefer = Mundocente\Preferencias::where('users_email',Auth::user()->email)
-                                                ->where('areas_id',$actividad->area_id)
+                        $listPrefer = DB::table('creacions')
+                                            ->join('actividads', 'creacions.activity_id', '=', 'actividads.id')
+                                            ->join('preferencias', 'creacions.area_id', '=', 'preferencias.areas_id')
+                                            ->where('actividads.id',$actividad->id)
+                                            ->where('preferencias.users_email',Auth::user()->email)
+                                            
                                                 ->count();
 
                         $countResult++;

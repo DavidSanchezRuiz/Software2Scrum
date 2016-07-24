@@ -1,6 +1,10 @@
 <?php
     $areas = Mundocente\Areas::all();
-    $institutes = Mundocente\Institute::where('id',Auth::user()->institute_id)->get();
+    $institutesList = DB::table('institutes')
+    ->join('lugars', 'institutes.lugar_id', '=', 'lugars.id')
+    ->where('institutes.id',Auth::user()->institute_id)
+    ->select('institutes.name_i','lugars.id', 'lugars.name')
+    ->get();
 ?>
 
 <!-- Modal Convocatoria -->
@@ -13,14 +17,19 @@
                 <input type="hidden" id="id">
 
                 <div class="col s12 m12">
-                    <h6>Por: 
+                    <h6>En : 
                     
-                        @foreach($institutes as $institute)
-                        <span style="color: #4d4d4d;" >{{$institute->name_i}}</span>
+                        @foreach($institutesList as $institute)
+                        <span style="color: #4d4d4d;" >{{$institute->name_i}} de {{$institute->name}}</span>
+                        <input type="hidden" id="id_lugar_convo_hidden" value="{{$institute->id}}">
                         @endforeach
                         
                     </h6>
+
                 </div>
+
+                 
+
                 <br>
 
                 <div style="padding-top: 10px">
@@ -28,7 +37,7 @@
 
                     <!--area para agregar -->
 
-                    <select class="js-example-basic-multiple" name="search_area[]"  multiple="multiple"  id="nueva_convocatoria" title="Seleccionar tema de preferencia">
+                <select class="js-example-basic-multiple" multiple="multiple"  id="nueva_convocatoria" title="Seleccionar tema de preferencia">
 
                         @foreach($areas as $area)
                             <option value="{{$area->id}}">{{$area->name_a}}</option>
@@ -79,6 +88,21 @@
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Modal Revista -->
 <div id="revista" class="modal">
     <div class="modal-content">
@@ -89,10 +113,11 @@
 
 
             <div class="col s12 m12">
-                <h6>Por:
+                <h6>Por :
 
-                    @foreach($institutes as $institute)
+                    @foreach($institutesList as $institute)
                         <span style="color: #4d4d4d;">{{$institute->name_i}}</span>
+                        <input type="hidden" id="id_lugar_convo_hidden_revista" value="{{$institute->id}}">
                     @endforeach
 
                 </h6>
@@ -104,7 +129,7 @@
 
                 <!--area para agregar -->
 
-                <select class="js-example-basic-multiple" name="r_search_area[]"  multiple="multiple"  id="nueva_revista" title="Seleccionar tema de preferencia">
+                <select class="js-example-basic-multiple"   multiple="multiple"  id="nueva_revista" title="Seleccionar tema de preferencia">
 
                     @foreach($areas as $area)
                         <option value="{{$area->id}}">{{$area->name_a}}</option>
@@ -134,7 +159,7 @@
                     </li>
                 </ul>
             </div>
-
+            <br>
             <!-- Switch -->
             <div class="switch">
                 <p>
@@ -143,26 +168,29 @@
                 <p>
                     <label>
                         No Indexada
-                        <input type="checkbox">
+                        <input type="checkbox" id="indexada_revista_dato" value="no" onclick="changeIndexada()">
                         <span class="lever"></span>
                         Indexada
                     </label>
                 </p>
             </div>
-            <label style="">Seleccionar categoría</label>
-            <select class="browser-default">
+            <br>
+            <label id="select_categori_label" style="display: none;">Seleccionar categoría</label>
+            <select class="browser-default" style="display: none;"  id="categori_select_opcion">
                 <option value="1">A1</option>
                 <option value="2">A2</option>
                 <option value="3">B</option>
                 <option value="4">C</option>
             </select>
-            <div class="col s12 m12">
+            <br>
+            
+        </div>
+        <div class="col s12 m12">
                 <div style="">
                     <label>Fecha:</label>
                     <input type="date" id="r_date_inicio_new" class="datepicker">
                 </div>
             </div>
-        </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action btn modal-close waves-effect red btn-flat "
@@ -208,14 +236,35 @@
 
 
                 <div class="col s12 m12">
-                    <h6>Por: 
+                    <h6>Ofrecido por : 
                     
-                        @foreach($institutes as $institute)
-                        <span style="color: #4d4d4d;" >{{$institute->name_i}}</span>
+                        @foreach($institutesList as $institute)
+                        <span style="color: #4d4d4d;" >{{$institute->name_i}} - {{$institute->name}}</span>
                         @endforeach
                         
                     </h6>
                 </div>
+                <br>
+               
+
+                <?php
+                    $lista_lugares =  Mundocente\Lugar::where('tipo','m')->get();
+                ?>
+
+                 <div style="padding-top: 10px">
+                        <label class="left grey-text text-darken-3">Se realizará en:</label>
+                        <select id="lugar_evento_id" class="browser-default">
+                            @foreach($lista_lugares as $lugar)
+                            @if($lugar->id==$institute->id)
+                                <option value="{{$lugar->id}}" selected="true">{{$lugar->name}}</option>
+                            @endif
+                                <option value="{{$lugar->id}}">{{$lugar->name}}</option>
+                            @endforeach
+                            
+                        </select>
+                        
+                    </div>
+
                 <br>
 
                 <div style="padding-top: 10px">
@@ -223,7 +272,7 @@
 
                     <!--area para agregar -->
 
-                    <select class="js-example-basic-multiple" name="e_search_area[]"  multiple="multiple"  id="nueva_evento" title="Seleccionar tema de preferencia">
+                    <select class="js-example-basic-multiple"  multiple="multiple"  id="nueva_evento" title="Seleccionar tema de preferencia">
 
                         @foreach($areas as $area)
                             <option value="{{$area->id}}">{{$area->name_a}}</option>

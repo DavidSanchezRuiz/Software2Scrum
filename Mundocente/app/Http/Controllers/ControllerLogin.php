@@ -36,18 +36,24 @@ class ControllerLogin extends Controller
      */
     public function index()
     {
-     $areas = Areas::lists('name_a','id');
+        $areas = Areas::lists('name_a','id');
         $institutes = Institute::lists('name_i','id');
 
         $actividads = DB::table('users')
             ->join('actividads', 'users.id', '=', 'actividads.users_id')
             ->join('institutes', 'users.institute_id', '=', 'institutes.id')
-            ->select('actividads.area_id','institutes.id','actividads.title', 'actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title', 'actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->orderby('actividads.id', 'desc')
             ->paginate(41);
 
         return view('search',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Temas']);
     }
+
+
+
+
+
+
     public function ingreso(){
         
     }
@@ -81,7 +87,7 @@ class ControllerLogin extends Controller
 
         $users = DB::table('users')
         ->join('institutes', 'users.institute_id', '=', 'institutes.id')
-        ->select('users.id','users.name', 'users.rol', 'users.email','users.last_name', 'institutes.name_i')
+        ->select('users.id','users.name', 'users.rol','users.cargo', 'users.email','users.last_name', 'institutes.name_i')
         ->orderby('users.id','desc')
         ->get();
 
@@ -96,7 +102,7 @@ class ControllerLogin extends Controller
         $actividads = DB::table('users')
             ->join('actividads', 'users.id', '=', 'actividads.users_id')
             ->join('institutes', 'users.institute_id', '=', 'institutes.id')
-            ->select('institutes.id','actividads.area_id','actividads.title','actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->select('institutes.id','actividads.title','actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace','users.name','users.last_name','institutes.name_i')
             ->orderby('actividads.id', 'desc')
             ->paginate(41);
 
@@ -107,16 +113,6 @@ class ControllerLogin extends Controller
     }
 
 
-    public function obtenerdatosusuarios($id_u){
-        $users = DB::table('users')
-            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
-            ->select('users.id','users.name', 'users.rol', 'users.email','users.last_name', 'institutes.name_i')
-            ->where('users.id',$id_u)
-            ->get();
-        return response()->json(
-            $users
-        );
-    }
 
     public function activarUsuario(Request $request){
          if($request->ajax()){
@@ -171,6 +167,29 @@ class ControllerLogin extends Controller
     }
 
 
+
+
+
+
+
+
+
+    public function obtenerdatosusuarios($id_u){
+        $users = DB::table('users')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->join('lugars', 'users.lugar_id', '=', 'lugars.id')
+            ->select('users.id','users.name as name_u', 'users.rol', 'users.email','users.last_name', 'institutes.id as id_i', 'users.cargo','lugars.id as id_l', 'users.email_active')
+            ->where('users.id',$id_u)
+            ->get();
+        return response()->json(
+            $users
+        );
+    }
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -193,6 +212,7 @@ class ControllerLogin extends Controller
         if($request['email']=="administrador@mundocente.com"){
             return Redirect::to('admin'); 
         }else{
+            
             return Redirect::to('home');    
         }
         
@@ -226,6 +246,63 @@ class ControllerLogin extends Controller
         //
     }
 
+
+
+    public function edit_user_admin(Request $request, $id_u){
+           if($request->ajax()){
+
+            
+
+            
+
+                DB::table('users')
+            ->where('id', $id_u)
+            ->update(['name' => $request['name_new']]);
+
+            DB::table('users')
+            ->where('id', $id_u)
+            ->update(['last_name' => $request['last_name_new']]);
+
+
+
+
+            
+
+         
+
+            
+
+            DB::table('users')
+            ->where('id', $id_u)
+            ->update(['cargo' => $request['cargo_new']]);
+           
+            DB::table('users')
+            ->where('id', $id_u)
+            ->update(['lugar_id' => $request['ciudad_new']]);
+
+
+
+             DB::table('users')
+            ->where('id', $id_u)
+            ->update(['email_active' => $request['active_new']]);
+
+            
+            DB::table('users')
+            ->where('id', $id_u)
+            ->update(['institute_id' => $request['univer_new']]);
+
+
+                
+
+        return 0;
+           
+
+            
+
+               
+    }
+}
+
     /**
      * Update the specified resource in storage.
      *
@@ -240,12 +317,37 @@ class ControllerLogin extends Controller
             DB::table('users')
             ->where('id', $id)
             ->update(['name' => $request['name']]);
+
+
             DB::table('users')
             ->where('id', $id)
             ->update(['last_name' => $request['last_name']]);
+
+
+               if($request['email']!=Auth::user()->email){
+                $countEma = DB::table('users')->where('email', $request['email'])->count();
+                if($countEma==0){
+                     Preferencias::where('users_email', Auth::user()->email)->delete();
+                 DB::table('users')
+                ->where('id', $id)
+                ->update(['email' => $request['email']]);
+                }
+               
+            }
+
+           
+
+
             DB::table('users')
             ->where('id', $id)
-            ->update(['email' => $request['email']]);
+            ->update(['cargo' => $request['cargo_edit']]);
+            DB::table('users')
+            ->where('id', $id)
+            ->update(['lugar_id' => $request['recidencia_account']]);
+
+             DB::table('users')
+            ->where('id', $id)
+            ->update(['email_active' => $request['new_email_active_edit_account']]);
 
             
 

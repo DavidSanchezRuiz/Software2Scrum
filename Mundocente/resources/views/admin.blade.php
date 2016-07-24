@@ -29,10 +29,10 @@
                              <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token{{$user->id}}">
                     <input type="hidden" id="id">
                         <tr>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->name_i}}</td>
-                            <td>{{$user->rol}}</td>
-                            <td>{{$user->email}}</td>
+                            <td id="name_actual_tabla{{$user->id}}">{{$user->name}}</td>
+                            <td id="name_unoiver_tabla{{$user->id}}">{{$user->name_i}}</td>
+                            <td id="cargo_user_tabla{{$user->id}}">{{$user->cargo}}</td>
+                            <td id="email_user_tabla{{$user->id}}">{{$user->email}}</td>
 
                             <input type="hidden" value="{{$user->email}}" id="email_hidden{{$user->id}}">
                                 
@@ -83,98 +83,95 @@
 </div>
 
 
-<?php
-$areas = Mundocente\Areas::all();
-$institutes = Mundocente\Institute::where('id', Auth::user()->institute_id)->get();
-?>
+
 
 <div id="edit_user" class="modal">
     <div class="modal-content">
         <div class="container">
-            <h4 class="light">Publicar Revista</h4>
+            <h4 class="light">Editar Usuario</h4>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
             <input type="hidden" id="id">
 
-            <div class="input-field col s12 m12">
-                <input id="name_edit_admin" type="text" class="validate">
-                <label class="active" for="name_edit_admin">Nombre</label>
-            </div>
-
-            <div class="col s12 m12">
-                <h6>Por:
-
-                    @foreach($institutes as $institute)
-                        <span style="color: #4d4d4d;">{{$institute->name_i}}</span>
-                    @endforeach
-
-                </h6>
-            </div>
-            <br>
-
-            <div style="padding-top: 10px">
-                <label class="left grey-text text-darken-3">Seleccione el área de preferencia</label>
-
-                <!--area para agregar -->
-
-                <select class="js-example-basic-multiple" name="r_search_area[]"  multiple="multiple"  id="nueva_revista" title="Seleccionar tema de preferencia">
-
-                    @foreach($areas as $area)
-                        <option value="{{$area->id}}">{{$area->name_a}}</option>
-                    @endforeach
-
-                </select>
-            </div>
+            <input type="hidden" id="id_user_edit">
 
             <div class="input-field col s12 m12">
-                <input id="r_enlace_new" type="text" class="validate">
-                <label class="active" for="r_enlace_new">Enlace</label>
+                <input id="name_edit_admin" type="text" class="validate" placeholder="Nombres">
+                
             </div>
 
-            <div class="input-field col s12 m12">
-                <ul class="collapsible" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header"><i class="material-icons">mode_edit</i>Añadir descripción</div>
-                        <div class="collapsible-body"><textarea id="r_description_new"
-                                                                style="border:none;outline: none;max-width: 100%;"
-                                                                placeholder="Ingresa la descripción de la convocatoria"></textarea>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                 <div class="input-field col s12 m12">
+                    <input id="last_name_edit_admin" type="text" class="validate"
+                            placeholder="Apellidos">
 
-            <!-- Switch -->
-            <div class="switch">
-                <p>
-                    <label style="">Tipo de revista:</label>
-                </p>
-                <p>
-                    <label>
-                        No Indexada
-                        <input type="checkbox">
-                        <span class="lever"></span>
-                        Indexada
-                    </label>
-                </p>
-            </div>
-            <label style="">Seleccionar categoría</label>
-            <select class="browser-default">
-                <option value="1">A1</option>
-                <option value="2">A2</option>
-                <option value="3">B</option>
-                <option value="4">C</option>
-            </select>
-            <div class="col s12 m12">
-                <div style="">
-                    <label>Fecha:</label>
-                    <input type="date" id="r_date_inicio_new" class="datepicker">
                 </div>
-            </div>
+                <div class="input-field col s12 m12">
+                    <input id="email_edit_admin" type="email" required class="validate"
+                             placeholder="Correo" disabled="true" style="color: #000;" title="No se puede editar el correo">
+                             <label class="left grey-text text-darken-3">Correo</label>
+                    
+                </div>
+                <input type="hidden" id="email_anitguo" value="{{Auth::user()->email}}">
+                <div class="col s12 m12" style="padding-top: 10px">
+                    <label class="left grey-text text-darken-3">Universidad</label>
+                    <?php
+
+                        $institutes = Mundocente\Institute::all();
+                        ?>
+                    <select class="browser-default" id="universidad_new_admin" title="Edita la universidad">
+                        @foreach($institutes as $institu)
+                        
+                            <option value="{{$institu->id}}" >{{$institu->name_i}}</option>
+                        
+                            
+                        @endforeach
+                    </select>
+                    <p style="font-size: 13px;color: #7d7d7d;">Si se cambia de universidad tendrá que volver a dar el permiso de publicador</p>
+                </div>
+
+
+
+                 <div class="input-field col s12 m12">
+                    <input  id="cargo_edit_admin" type="text" required class="validate"
+                            placeholder="Cargo">
+                </div>
+
+
+                <br>
+
+                 <div class="col s12 m12" style="padding-top: 0px">
+                    <label class="left grey-text text-darken-3">Ciudad de Recidencia actual:</label>
+                    <?php
+                        $lugares = Mundocente\Lugar::where('tipo','m')->orderBy('name')->get();
+                    ?>
+
+                    <select class="browser-default" id="ciudad_actual_chanfe_admin" title="Seleccione la ciudad de recidencia">
+                    @foreach($lugares as $lugar)
+                     
+                            <option value="{{$lugar->id}}">{{$lugar->name}}</option>
+                        
+                    @endforeach
+
+                    </select>
+
+                </div>
+
+                        <p> 
+                            <input type="checkbox" id="nofiti_admin_edit" onclick="change_email_admin()">
+                            <label for="nofiti_admin_edit" class="black-text" style="font-size: 13px;">Recibir correos de nuevas publicaciones de mi interés.</label>
+                        </p>
+
+                        <input type="hidden" id="new_nofiti_admin_save">
+
+
+
+
+            
         </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action btn modal-close waves-effect red btn-flat "
            style="color: #fff;margin-left: 5px;">Cerrar</a>
-        <a href="#!" class="modal-action btn waves-effect green btn-flat white-text" onclick="add_revista()">Publicar</a>
+        <a class="modal-action btn waves-effect green btn-flat white-text modal-close" onclick="save_data_user_admin()">Editar</a>
     </div>
 </div>
 

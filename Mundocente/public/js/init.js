@@ -25,13 +25,13 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $('.slider').slider({full_width: true});
-});
-
-$(document).ready(function() {
     $(".js-example-basic-multiple").select2({
         placeholder: "Selecciona los temas de preferencia"
     });
+    $(".js-example-diacritics").select2();
 });
+
+
 
 function nobackbutton(){
 	
@@ -39,6 +39,8 @@ function nobackbutton(){
 	
    window.location.hash="Again-No-back-button" //chrome
 	
-   window.onhashchange=function(){window.location.hash="es";}
+   window.onhashchange=function(){window.location.hash="";}
 	
 }
+
+
