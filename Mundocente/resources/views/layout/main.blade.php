@@ -10,22 +10,22 @@
     {!!Html::style('css/materialize.min.css')!!}
     {!!Html::style('css/style.css')!!}
 </head>
-<body>
+<body onload="nobackbutton();">
 
 <!-- Navegador -->
 <section class="navbar navbar-fixed">
     <nav class="grey darken-4" style="z-index: 10">
         <div class="nav-wrapper container list ">
-            <a href="home" class="brand-logo"><img src="../images/logoNav.png" style="height: 60px;"></a>
+            <a href="../home" class="brand-logo"><img src="../images/logoNav.png" style="height: 60px;"></a>
             <ul class="right hide-on-med-and-down nav-size">
                 <li class="input-field">
                     {!!Form::open(['route'=>'search.store'])!!}
-                    <input id="search" type="search" name="palabra-clave" autocomplete="off" placeholder="Ingrese título de publicación" required="required" class="grey" style="min-width: 400px; height:65px;">
+                    <input id="search" type="search" name="palabra-clave" autocomplete="off" placeholder="Palabra clave del título" required="required" class="grey" style="min-width: 400px; height:65px;">
                     <label for="search"></label><i class="material-icons">
                     {!!Form::submit('search',['class'=>'btn-flat buton-search', 'title'=>'Click para buscar'])!!}</i>
                     {!!Form::close()!!}
                 </li>
-                <li><a href="home">Inicio</a></li>
+                <li><a href="../home">Inicio</a></li>
                 
                     @if(Auth::user()->rol=='publicador')
                          <li><a class="dropdown-button white-text " href="#!" data-activates="dropdown-publish">Publicar<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -51,18 +51,18 @@
                     @endif
 
                       @if(Auth::user()->rol=='administrador')
-
+                        <li><a class="dropdown-button white-text " href="#!" data-activates="dropdown-publish">Publicar<i class="material-icons right">arrow_drop_down</i></a></li>
 
                         <?php
                             $usersPend = Mundocente\User::where('rol','pendiente')->count();
                         ?>
 
                       <li>
-                            <a  href="admin">Pendientes ({{$usersPend}}) <i class="material-icons right">add_alert</i></a>
+                            <a  href="../admin">Pendientes ({{$usersPend}}) <i class="material-icons right">add_alert</i></a>
                         </li>
 
 
-                          <li><a href="logout">Salir <i class="material-icons right">power_settings_new</i></a></li>
+                          <li><a href="../logout">Salir <i class="material-icons right">power_settings_new</i></a></li>
                    
                     @endif
 
@@ -106,6 +106,7 @@
                     @endif
 
                      @if(Auth::user()->rol=='administrador')
+                      <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown-publish2">Publicar<i class="material-icons right">arrow_drop_down</i></a></li>
 
                      <?php
                             $usersPend = Mundocente\User::where('rol','pendiente')->count();
@@ -199,6 +200,7 @@
 {!!Html::script('js/jquery.js')!!}
 {!!Html::script('js/materialize.min.js')!!}
 {!!Html::script('js/init.js')!!}
+{!!Html::script('js/manager_user_admin.js')!!}
 {!!Html::script('js/manejaPermisos.js')!!}
 {!!Html::script('js/add_activity.js')!!}
 {!!Html::script('js/edit_publication.js')!!}

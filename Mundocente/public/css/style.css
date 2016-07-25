@@ -351,3 +351,19 @@ img.image-services {
 .nav-size li {
     min-width:100px;
 }
+
+#info {
+    background: url(../images/fondo.jpg) no-repeat fixed 100% 0%/cover;
+    cursor: default;
+}
+
+img.image-info {
+    display: block;
+    margin: 50px auto;
+    background-color: rgba(33, 33, 33, 1);
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 50%;
+    transition: box-shadow 0.3s;
+}

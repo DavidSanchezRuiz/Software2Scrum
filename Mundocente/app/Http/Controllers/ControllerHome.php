@@ -37,7 +37,7 @@ class ControllerHome extends Controller
         $actividads = DB::table('users')
             ->join('actividads', 'users.id', '=', 'actividads.users_id')
             ->join('institutes', 'users.institute_id', '=', 'institutes.id')
-            ->select('actividads.area_id','institutes.id','actividads.title','actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.cargo','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->orderby('actividads.id', 'desc')
             ->paginate(20);
 
@@ -60,7 +60,7 @@ class ControllerHome extends Controller
         $actividads = DB::table('users')
             ->join('actividads', 'users.id', '=', 'actividads.users_id')
             ->join('institutes', 'users.institute_id', '=', 'institutes.id')
-            ->select('actividads.area_id','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->orderby('actividads.id', 'desc')
             ->paginate(20);
 

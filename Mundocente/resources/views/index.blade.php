@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link rel="icon" type="../images/LogMundocente-01.png" href="../images/LogMundocente-01.png" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Mundocente</title>
@@ -12,7 +13,7 @@
     {!!Html::style('css/style.css')!!}
 
 </head>
-<body>
+<body onload="nobackbutton();">
 <!-- Navegador -->
 <section class="navbar-fixed">
     <nav class="grey darken-4">
@@ -99,7 +100,7 @@
 
 <?php
 
-$listRecient = Mundocente\Actividad::limit(6)->get();
+$listRecient = Mundocente\Actividad::limit(6)->orderby("id","desc")->get();
 
 ?>
 <section class="section news scrollspy grey darken-4" id="News">
@@ -354,15 +355,61 @@ $listRecient = Mundocente\Actividad::limit(6)->get();
             </li>
         </ul>
     </div>
-    <svg id="bottomShape5" width="100%" height="50px" fill="#37474f" viewBox="0 0 1366 70" preserveAspectRatio="none"
-         style="margin-bottom: -41px">
-        <path d="m 0.274329,73.862183 1366,0 L 1366,9.3475355 900.35901,39.96681 -0.00563127,0.20494098 z"
-              stroke-width="0" stroke-dasharray="none" stroke-miterlimit="4"></path>
-    </svg>
+</section>
+
+
+<!-- Equipo -->
+<section class="section scrollspy info" id="info">
+
+    <div class="container">
+        <div class="row center">
+            <div class="col s12 m3">
+                <img class="image-info" src="images/docente.png" style="width: 100px">
+                <div class="center grey-text text-darken-4 light">
+                    <span>Docentes</span>
+                    <?php
+                        $countDocen = Mundocente\User::count();
+                    ?>
+                    <h5 class="light">{{$countDocen}}</h5>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <img class="image-info" src="images/Convocatoria.png" style="width: 100px">
+                <div class="center grey-text text-darken-4 light">
+                    <span>Convocatorias</span>
+                     <?php
+                        $convocaCount = Mundocente\Actividad::where('tipo','convocatoria')->count();
+                    ?>
+                    <h5 class="light">{{$convocaCount}}</h5>
+                    
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <img class="image-info" src="images/Eventos.png" style="width: 100px">
+                <div class="center grey-text text-darken-4 light">
+                    <span>Revistas</span>
+                    <?php
+                        $revCount = Mundocente\Actividad::where('tipo','revista')->count();
+                    ?>
+                    <h5 class="light">{{$revCount}}</h5>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <img class="image-info" src="images/Revistas.png" style="width: 100px">
+                <div class="center grey-text text-darken-4 light">
+                    <span>Eventos</span>
+                    <?php
+                        $EvenCount = Mundocente\Actividad::where('tipo','evento')->count();
+                    ?>
+                    <h5 class="light">{{$EvenCount}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- Footer -->
-<footer class="page-footer blue-grey darken-3">
+<footer class="page-footer blue-grey darken-3" style="margin: 0;">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
@@ -378,6 +425,7 @@ $listRecient = Mundocente\Actividad::limit(6)->get();
             <a class="grey-text text-lighten-4 right" href="#">Mas Links</a>
         </div>
     </div>
+
 </footer>
 <!--Scripts -->
 {!!Html::script('https://code.jquery.com/jquery-2.1.1.min.js')!!}

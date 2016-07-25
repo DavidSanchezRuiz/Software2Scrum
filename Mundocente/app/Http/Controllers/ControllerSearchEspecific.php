@@ -44,18 +44,238 @@ class ControllerSearchEspecific extends Controller
      */
     public function store(Request $request)
     {
-        $areas = Areas::lists('name_a','id');
+
+        if(($request['busqueda_u']=='si')&&($request['busqueda_a']=='si')&&($request['busqueda_t']=='si')&&($request['busqueda_c']=='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->join('lugars', 'actividads.lugar_id', '=', 'lugars.id')
+            ->join('creacions', 'actividads.id', '=', 'creacions.activity_id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->where('actividads.tipo',$request['search_tipo_avanced'])
+            ->where('institutes.id',$request['search_univer_avanced'])
+            ->where('creacions.area_id',$request['search_area_avanced'])
+            ->Where('actividads.lugar_id',$request['search_city_avanced'])
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else if(($request['busqueda_u']=='si')&&($request['busqueda_a']!='si')&&($request['busqueda_t']!='si')&&($request['busqueda_c']!='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            
+            ->where('institutes.id',$request['search_univer_avanced'])
+            
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else if(($request['busqueda_u']!='si')&&($request['busqueda_a']=='si')&&($request['busqueda_t']!='si')&&($request['busqueda_c']!='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->join('creacions', 'actividads.id', '=', 'creacions.activity_id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            
+            ->where('creacions.area_id',$request['search_area_avanced'])
+            
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else if(($request['busqueda_u']!='si')&&($request['busqueda_a']!='si')&&($request['busqueda_t']=='si')&&($request['busqueda_c']!='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->where('actividads.tipo',$request['search_tipo_avanced'])
+            
+            
+            
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else if(($request['busqueda_u']!='si')&&($request['busqueda_a']!='si')&&($request['busqueda_t']!='si')&&($request['busqueda_c']=='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            
+            
+            
+            ->Where('institutes.lugar_id',$request['search_city_avanced'])
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else  if(($request['busqueda_u']=='si')&&($request['busqueda_a']=='si')&&($request['busqueda_t']!='si')&&($request['busqueda_c']!='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->join('creacions', 'actividads.id', '=', 'creacions.activity_id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            
+            ->where('creacions.area_id',$request['search_area_avanced'])
+            ->where('institutes.id',$request['search_univer_avanced'])
+            
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else  if(($request['busqueda_u']=='si')&&($request['busqueda_a']!='si')&&($request['busqueda_t']=='si')&&($request['busqueda_c']!='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->where('actividads.tipo',$request['search_tipo_avanced'])
+            
+            ->where('institutes.id',$request['search_univer_avanced'])
+            
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else  if(($request['busqueda_u']=='si')&&($request['busqueda_a']!='si')&&($request['busqueda_t']!='si')&&($request['busqueda_c']=='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            
+            
+            ->where('institutes.id',$request['search_univer_avanced'])
+            ->Where('institutes.lugar_id',$request['search_city_avanced'])
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else  if(($request['busqueda_u']!='si')&&($request['busqueda_a']=='si')&&($request['busqueda_t']=='si')&&($request['busqueda_c']!='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->join('creacions', 'actividads.id', '=', 'creacions.activity_id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->where('actividads.tipo',$request['search_tipo_avanced'])
+            ->where('creacions.area_id',$request['search_area_avanced'])
+            
+            
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else  if(($request['busqueda_u']!='si')&&($request['busqueda_a']=='si')&&($request['busqueda_t']!='si')&&($request['busqueda_c']=='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->join('creacions', 'actividads.id', '=', 'creacions.activity_id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            
+            ->where('creacions.area_id',$request['search_area_avanced'])
+            
+            ->Where('institutes.lugar_id',$request['search_city_avanced'])
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else  if(($request['busqueda_u']!='si')&&($request['busqueda_a']!='si')&&($request['busqueda_t']=='si')&&($request['busqueda_c']=='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->where('actividads.tipo',$request['search_tipo_avanced'])
+            
+            
+            ->Where('institutes.lugar_id',$request['search_city_avanced'])
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else if(($request['busqueda_u']=='si')&&($request['busqueda_a']=='si')&&($request['busqueda_t']=='si')&&($request['busqueda_c']!='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->join('creacions', 'actividads.id', '=', 'creacions.activity_id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->where('actividads.tipo',$request['search_tipo_avanced'])
+            ->where('creacions.area_id',$request['search_area_avanced'])
+            ->where('institutes.id',$request['search_univer_avanced'])
+            
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else if(($request['busqueda_u']=='si')&&($request['busqueda_a']!='si')&&($request['busqueda_t']=='si')&&($request['busqueda_c']=='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->where('actividads.tipo',$request['search_tipo_avanced'])
+            
+            ->where('institutes.id',$request['search_univer_avanced'])
+            ->Where('institutes.lugar_id',$request['search_city_avanced'])
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else if(($request['busqueda_u']!='si')&&($request['busqueda_a']=='si')&&($request['busqueda_t']=='si')&&($request['busqueda_c']=='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->join('creacions', 'actividads.id', '=', 'creacions.activity_id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            ->where('actividads.tipo',$request['search_tipo_avanced'])
+            ->where('creacions.area_id',$request['search_area_avanced'])
+            
+            ->Where('institutes.lugar_id',$request['search_city_avanced'])
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else if(($request['busqueda_u']=='si')&&($request['busqueda_a']=='si')&&($request['busqueda_t']!='si')&&($request['busqueda_c']=='si')){
+            $areas = Areas::lists('name_a','id');
+            $institutes = Institute::lists('name_i','id');
+            $actividads = DB::table('users')
+            ->join('actividads', 'users.id', '=', 'actividads.users_id')
+            ->join('institutes', 'users.institute_id', '=', 'institutes.id')
+            ->join('creacions', 'actividads.id', '=', 'creacions.activity_id')
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
+            
+            ->where('creacions.area_id',$request['search_area_avanced'])
+            ->where('institutes.id',$request['search_univer_avanced'])
+            ->Where('institutes.lugar_id',$request['search_city_avanced'])
+            ->orderby('actividads.id', 'desc')
+            ->paginate(9);
+        return view('search_especific',compact('areas','institutes', 'actividads'));
+        }else if(($request['busqueda_u']!='si')&&($request['busqueda_a']!='si')&&($request['busqueda_t']!='si')&&($request['busqueda_c']!='si')){
+            $areas = Areas::lists('name_a','id');
         $institutes = Institute::lists('name_i','id');
         $actividads = DB::table('users')
             ->join('actividads', 'users.id', '=', 'actividads.users_id')
             ->join('institutes', 'users.institute_id', '=', 'institutes.id')
-            ->select('actividads.area_id','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
-            ->where('actividads.tipo',$request['search_tipo_avanced'])
-            ->where('actividads.area_id',$request['search_area_avanced'])
-            ->where('institutes.id',$request['search_univer_avanced'])
+            ->select('actividads.id','actividads.categoria','actividads.indexada','actividads.id','actividads.categoria','actividads.indexada','actividads.title','actividads.description','actividads.tipo','actividads.fecha_inicio','actividads.fecha_fin','actividads.enlace', 'users.name', 'users.last_name','institutes.name_i')
             ->orderby('actividads.id', 'desc')
-            ->paginate(20);
-        return view('search_especific',compact('areas','institutes', 'actividads'));
+            ->paginate(41);
+        return view('search_all',compact('areas','institutes', 'actividads'),['tipo_activity'=>'Todas']);
+        
+        }
+
+        
     }
 
 

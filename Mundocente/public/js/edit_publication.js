@@ -1,3 +1,19 @@
+
+function changeIndexadaEdit(id_activity){
+	var change_index = $('#indexada_revista_dato'+id_activity).val();
+	if(change_index=='si'){
+		$('#indexada_revista_dato'+id_activity).val("no");
+		$('#select_categori_label'+id_activity).css({display: 'none'});
+		$('#categori_select_opcion'+id_activity).css({display: 'none'});
+	}else{
+		$('#indexada_revista_dato'+id_activity).val("si");
+		$('#select_categori_label'+id_activity).css({display: 'block'});
+		$('#categori_select_opcion'+id_activity).css({display: 'block'});
+	}
+	
+}
+
+
 //editar publicación
 function edit_publication(id_publication) {
 	var id_actividad = id_publication;
@@ -5,7 +21,7 @@ function edit_publication(id_publication) {
 
 	var title_new = $("#select_title_edit"+id_actividad).val();
 	
-	var area_new = $("#select_area_edit"+id_actividad).val();
+	var area_new = $("#select_edit_areas"+id_actividad).val();
 	
 	var cargo_new = $("#select_cargo_edit"+id_actividad).val();
 	
@@ -19,8 +35,15 @@ function edit_publication(id_publication) {
 	
 	var fin_new = $("#select_fin_edit"+id_actividad).val();
 
+	var index = $("#indexada_revista_dato"+id_actividad).val();	
 
-	if(title_new.length>0){
+	var categori = $("#categori_select_opcion"+id_actividad).val();	
+
+	
+
+
+	if(area_new!=null){
+		if(title_new.length>0){
 		if(enlace_new.length>0){
 			var route ="/add-publication/"+id_actividad;
 				var token = $("#token"+id_actividad).val();
@@ -31,7 +54,7 @@ function edit_publication(id_publication) {
 					type:'PUT',
 					dataType:'json',
 					data:{area: area_new, titulo:title_new, cargo:cargo_new, enlace:enlace_new, desc:desc_new,
-					 inicio:inicio_new, fin:fin_new, tipo:tipo_new},
+					 inicio:inicio_new, fin:fin_new, tipo:tipo_new, indexa:index, cat:categori},
 					success:function(info){
 						$("#div_all_edit"+id_actividad).toggle(1000);
 						$("#div_all_edit"+id_actividad).css({display: 'none'});
@@ -50,6 +73,12 @@ function edit_publication(id_publication) {
 	}else{
 		Materialize.toast('El título es obligatorio', 4000);
 	}
+	
+}else{
+	Materialize.toast('Agregar mínimo un tema', 4000);
+}
+
+	
 	
 	
 }

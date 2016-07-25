@@ -22,6 +22,7 @@ Route::resource('singup','ControllerRegister');
 
 Route::resource('user','ControllerLogin');
 
+
 Route::resource('activar-user','ControllerLogin@activarUsuario');
 
 Route::resource('desactivar-user','ControllerLogin@desactivarUsuario');
@@ -32,9 +33,9 @@ Route::get('settings','ControllerLogin@configurar');
 Route::get('logout','ControllerLogin@salir');
 Route::get('admin','ControllerLogin@admin');
 
+Route::get('getdatauser/{id_u}','ControllerLogin@obtenerdatosusuarios');
 
-
-
+Route::post('edit_user_admin/{id_u}','ControllerLogin@edit_user_admin');
 
 
 
@@ -52,6 +53,7 @@ Route::resource('add-publication','ControllerActivity');
 
 
 Route::get('publication','ControllerActivity@configurarPublicaciones');
+Route::get('publication_edit_admin/{id_activi}','ControllerActivity@configurarPublicacionesUnic');
 
 
 
@@ -66,5 +68,8 @@ Route::resource('search-avanced','ControllerSearchEspecific');
 Route::get('resultados-convocatorias','ControllerSearch@mostrarConvocatorias');
 Route::get('resultados-revistas','ControllerSearch@mostrarRevistas');
 Route::get('resultados-eventos','ControllerSearch@mostrarEvento');
+Route::get('todas-las-publicaciones','ControllerSearch@mostrarTodo');
 
 Route::get('/{id_un}','ControllerSearch@mostrarUniversidad');
+
+

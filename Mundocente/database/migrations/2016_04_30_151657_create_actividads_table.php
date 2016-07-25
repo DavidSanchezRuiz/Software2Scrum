@@ -19,13 +19,16 @@ class CreateActividadsTable extends Migration
             $table->string('cargo');
             $table->string('enlace');
             $table->string('description');
+            $table->enum('indexada', ['si', 'no']);
+            $table->enum('categoria', ['A1', 'A2', 'B', 'C']);
             $table->string('fecha_inicio');
             $table->string('fecha_fin');
             $table->timestamps();
             $table->integer('users_id')->unsigned();
             $table->foreign('users_id')->references('id')->on('users');
-            $table->integer('area_id')->unsigned();
-            $table->foreign('area_id')->references('id')->on('areas');
+            $table->integer('lugar_id')->unsigned();
+            $table->foreign('lugar_id')->references('id')->on('lugars');
+            
         });
     }
 

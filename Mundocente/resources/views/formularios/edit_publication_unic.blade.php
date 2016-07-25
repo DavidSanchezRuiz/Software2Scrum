@@ -289,13 +289,7 @@ $countMyPublic = 0;
                             </div>
                         </li>
                     @endforeach
-                    @if($countMyPublic==0)
-                    <h1 style="color: #7d7d7d;font-size: 15px;text-align: center;float: left;">No has hecho ninguna publicación por el momento</h1>
-                    @endif
-                    <li class="col s12 m12">
-                        <div class="center">
-                            {!!$actividads->render()!!}
-                        </div>
-                    </li>
+                    
+                   
                 </ul>
             </div>

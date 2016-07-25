@@ -63,3 +63,15 @@ var route ="cancelar-permissions";
 
 	
 }
+
+
+function change_email_active(){
+
+	var state_email_actual = $("#hidden_email_active_edit").val();
+	if(state_email_actual=='si'){
+		$("#hidden_email_active_edit").val("no");
+	}else if(state_email_actual=='no'){
+		$("#hidden_email_active_edit").val("si");
+	}
+
+}
